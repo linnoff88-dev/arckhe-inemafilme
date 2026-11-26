@@ -1,4 +1,4 @@
-// inemafilme — Avatar: O Eco das Cinzas — build V2 (mais dinamico: ~92 imagens, camera variada, white-flash)
+// ARCKHÉfilme — Avatar: O Eco das Cinzas — build V2 (mais dinamico: ~92 imagens, camera variada, white-flash)
 import { generateImage } from '/home/nmaldaner/.claude/skills/pixflow-motion/cli/genimg.mjs';
 import { writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
@@ -12,7 +12,7 @@ const NOIMG = process.argv.includes('--no-img');
 
 const PROJECT = 'avatar-eco-cinzas-v2';
 const TITLE_TEXT = 'AVATAR — O ECO DAS CINZAS';
-const STYLE = 'cinematic, hyperrealistic, Pandora-like alien world, bioluminescent, tall blue-skinned Na\'vi people with amber eyes, ' +
+const STYLE = 'cARCKHÉtic, hyperrealistic, Pandora-like alien world, bioluminescent, tall blue-skinned Na\'vi people with amber eyes, ' +
   'epic dramatic volumetric lighting, vibrant colors, high detail, film grain, shallow depth of field, ' +
   'strong foreground / midground / deep background separation for parallax, dynamic composition, no text';
 
@@ -65,7 +65,7 @@ const BEATS = [
     'wide shot of the tiny girl before an immense dead gray expanse',
     'her ash-gray marked arm faintly glowing in the dark, mysterious',
   ] },
-  { key: 'b3', look: 'cinema-dramatico', energy: 'fear', imgs: [
+  { key: 'b3', look: 'cARCKHÉ-dramatico', energy: 'fear', imgs: [
     'a young Na\'vi hunter walking out of gray mist, his eyes dull and empty without any glow',
     'extreme close-up of hollow empty Na\'vi eyes, no inner light, no soul',
     'frightened villagers recoiling from the empty-eyed returnee in the gloom',
@@ -89,7 +89,7 @@ const BEATS = [
     'dim sacred glowing seeds drifting like dying fireflies in the dark',
     'wide reverent shot of the dying Tree of Souls against the night sky',
   ] },
-  { key: 'b5', look: 'cinema-dramatico', energy: 'tender', imgs: [
+  { key: 'b5', look: 'cARCKHÉ-dramatico', energy: 'tender', imgs: [
     'extreme close-up of an elderly Na\'vi hand braiding a shining silver hair strand into a young girl\'s braids, warm firelight',
     'the girl kneeling and tenderly holding the empty-eyed friend\'s face by a low fire',
     'close-up of the silver strand shining within the dark braid',
@@ -172,7 +172,7 @@ for (const b of BEATS) {
 }
 SHOTS.push({ id: 'sZZZ', kind: 'ember', cam: C('push_in', { intensity: 0.5 }), look: 'acao-epico', dur: 3.0, cap: TITLE('AVATAR', 'O Eco das Cinzas'), tout: { type: 'cut' } });
 
-const EMBER = 'dark cinematic background of glowing blue and teal embers and floating bioluminescent sparks rising through black mist, deep pure black background, atmospheric particles, no text, empty center';
+const EMBER = 'dark cARCKHÉtic background of glowing blue and teal embers and floating bioluminescent sparks rising through black mist, deep pure black background, atmospheric particles, no text, empty center';
 function solidColor(path, color) {
   if (existsSync(path)) return;
   const r = spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'lavfi', '-i', `color=c=${color}:s=1280x720`, '-frames:v', '1', path]);
@@ -216,7 +216,7 @@ function buildYaml() {
 schema: pixflow.movie/v1
 meta: { title: ${TITLE_TEXT}, author: nmaldaner }
 output: { resolution: 1280x720, fps: 30, filename: ${PROJECT}.mp4 }
-defaults: { look: cinema-dramatico, transition_out: { type: cut } }
+defaults: { look: cARCKHÉ-dramatico, transition_out: { type: cut } }
 audio: { track: trilha.wav, volume: 0.9 }
 assets:
   images:

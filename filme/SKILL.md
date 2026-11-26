@@ -1,19 +1,19 @@
 ---
 name: filme
-description: Transforma uma historia (historia.json do skill roteiro/contrato inemafilme.historia/v1) num FILME narrado e dinamico no pixflow — parallax 2.5D, sem IA de video. Gera as imagens (flux2-klein), aplica camera por emocao + efeitos + white-flash, renderiza, e monta o audio (narracao bella + Giuseppe, musica com build, SFX braam) com ducking. Use quando o usuario pedir "faz o filme", "transforma a historia/roteiro em video", "renderiza o filme", "vira filme essa historia", "monta o video do episodio", ou der uma historia.json/historia.md e quiser o MP4. NAO escreve a historia (isso e o skill `roteiro`); NAO usa gerador de video por IA.
+description: Transforma uma historia (historia.json do skill roteiro/contrato ARCKHÉfilme.historia/v1) num FILME narrado e dinamico no pixflow — parallax 2.5D, sem IA de video. Gera as imagens (flux2-klein), aplica camera por emocao + efeitos + white-flash, renderiza, e monta o audio (narracao bella + Giuseppe, musica com build, SFX braam) com ducking. Use quando o usuario pedir "faz o filme", "transforma a historia/roteiro em video", "renderiza o filme", "vira filme essa historia", "monta o video do episodio", ou der uma historia.json/historia.md e quiser o MP4. NAO escreve a historia (isso e o skill `roteiro`); NAO usa gerador de video por IA.
 ---
 
 # filme
 
 `historia.json` → **filme narrado** no pixflow (parallax 2.5D determinístico). É o renderizador
-do inemafilme: consome a história agnóstica (do skill `roteiro`) e a transforma em vídeo.
+do ARCKHÉfilme: consome a história agnóstica (do skill `roteiro`) e a transforma em vídeo.
 Direçêo de câmera/efeitos: ver `knowledge/direcao.md` (e o canônico `pixflow-trailer/inteligencia-direcao.md`).
 
 ## Pré-requisitos (sondar antes)
-- `inemaimg` (flux2-klein) em `localhost:8000` — imagens.
+- `ARCKHÉimg` (flux2-klein) em `localhost:8000` — imagens.
 - `pixflow-motion` instalado + deps (`node .../pixflow-motion.mjs check-deps`).
-- `inemavox` bella em `:7860` (narraçêo; sondar — pode oscilar) + `edge-tts` (Giuseppe + fallback).
-- `inemavox2/baixar_v1.py` (yt-dlp) — música/SFX. `ffmpeg`.
+- `ARCKHÉvox` bella em `:7860` (narraçêo; sondar — pode oscilar) + `edge-tts` (Giuseppe + fallback).
+- `ARCKHÉvox2/baixar_v1.py` (yt-dlp) — música/SFX. `ffmpeg`.
 
 ## Fluxo
 1. **Decupagem.** Copie `templates/decupagem.template.mjs` → `~/projetos/output/<id>/decupagem.mjs`.
@@ -28,7 +28,7 @@ Direçêo de câmera/efeitos: ver `knowledge/direcao.md` (e o canônico `pixflow
    (longo — rode em background; ≈ proporcional à duraçêo: ~2-3 min de filme ≈ 30-50 min).
 4. **Narraçêo.** Copie `templates/narracao.template.py` → `narracao.py`, preencha `LINES` (bella + Giuseppe),
    cronometradas pelos `timeline.json → beatStart`. `python3 narracao.py` → `narracao.wav`.
-5. **Música + SFX.** `scripts/baixar_musica.sh "<query cinematic build>" <dur>` → `music_bed.wav`.
+5. **Música + SFX.** `scripts/baixar_musica.sh "<query cARCKHÉtic build>" <dur>` → `music_bed.wav`.
    `python3 scripts/build_sfx.py --climax-beat <beat do climax> --hit-beats <beat de tensao>` → `sfx.wav`.
 6. **Mux.** `scripts/mux.sh <project>` → mixa (música ducked + SFX + voz) e produz `<project>.mp4`
    (final) + `<project>-tg.mp4` (<50MB). Áudio é barato → itere por re-mux, sem re-render.

@@ -1,5 +1,5 @@
 {
-  "versao_contrato": "inemafilme.historia/v1",
+  "versao_contrato": "ARCKHÉfilme.historia/v1",
   "id": "avatar-mini",
   "titulo": "Avatar — A Chama e as Cinzas",
   "logline": "Um fuzileiro paralitico ganha um corpo alienigena e precisa escolher entre dois mundos.",
@@ -7,7 +7,7 @@
   "duracao_alvo_s": 60,
   "formato": "16:9",
   "voz_narrador": "bella",
-  "look_padrao": "cinema-dramatico",
+  "look_padrao": "cARCKHÉ-dramatico",
   "personagens": [
     {
       "nome": "jake",

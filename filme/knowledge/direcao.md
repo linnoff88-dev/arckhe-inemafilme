@@ -2,7 +2,7 @@
 
 O motor (`scripts/engine.mjs`) já aplica a maior parte disto automaticamente a partir da
 **emoçêo de cada beat**. Este doc é a referência do que existe e como a gente usa.
-Catálogo canônico profundo (verbo de cinema → primitivo): `pixflow-trailer/inteligencia-direcao.md`.
+Catálogo canônico profundo (verbo de cARCKHÉ → primitivo): `pixflow-trailer/inteligencia-direcao.md`.
 Implementaçêo: `pixflow/skill/src/camera.js` (18 câmeras) e `src/looks.js` (6 looks).
 
 ## Princípio nº 1 (o que matou a v1)
@@ -33,7 +33,7 @@ só custa geraçêo de imagem. Entêo seja generoso no nº de planos.
 | esperanca | hope | aerial, crane, pull_out, push_in, ken_burns | ~1.9s |
 
 ## Looks (6) e o que cada um liga
-- `cinema-dramatico` — grain+vignette+chroma+bloom (emoçêo, rosto, íntimo)
+- `cARCKHÉ-dramatico` — grain+vignette+chroma+bloom (emoçêo, rosto, íntimo)
 - `sci-fi-cyberpunk` — vignette alta+chroma forte+bloom (tech, frio, dissoluçêo/glitch)
 - `noir-film` — grain+vignette alta (sóbrio, cartela, mundo morto)
 - `retro-vhs` — grain+chroma alto (flashback)
@@ -47,7 +47,7 @@ no fim de cada beat, e **white-flash** (`kind:'white'`, 0.1s) nos impactos do cl
 
 ## Áudio (camadas)
 - **narraçêo:** bella (:7860, principal) + Giuseppe (edge-tts it-IT, épico em abertura/clímax/final). `templates/narracao.template.py`.
-- **música:** royalty-free via inemavox, com build calma→épica. `scripts/baixar_musica.sh`.
+- **música:** royalty-free via ARCKHÉvox, com build calma→épica. `scripts/baixar_musica.sh`.
 - **SFX:** braam no clímax (pico alinhado) + hits; whoosh em transições; explosêo+vocal em batalha. `scripts/build_sfx.py`.
 - **mix:** música com **ducking** (sidechain) sob a voz; SFX por cima. `scripts/mux.sh`.
 - Imagem/render é caro; **áudio é barato** → itere narraçêo/mix por re-mux, sem re-render.

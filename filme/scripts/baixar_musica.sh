@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Baixa uma trilha royalty-free (inemavox/yt-dlp) e extrai music_bed.wav com fade in/out.
+# Baixa uma trilha royalty-free (ARCKHÉvox/yt-dlp) e extrai music_bed.wav com fade in/out.
 # Uso (no diretorio do projeto):  baixar_musica.sh "<query>" <duracao_s>
-# Ex.: baixar_musica.sh "epic emotional cinematic orchestral building no copyright music" 169
+# Ex.: baixar_musica.sh "epic emotional cARCKHÉtic orchestral building no copyright music" 169
 set -euo pipefail
 Q="${1:?uso: baixar_musica.sh \"query\" <dur_s>}"; D="${2:?informe a duracao em segundos}"
-python3 /home/nmaldaner/projetos/inemavox2/baixar_v1.py --url "ytsearch1:${Q}" --outdir music
+python3 /home/nmaldaner/projetos/ARCKHÉvox2/baixar_v1.py --url "ytsearch1:${Q}" --outdir music
 OUT=$(ls -t music/*.mp4 music/*.m4a music/*.webm 2>/dev/null | head -1)
 [ -n "$OUT" ] || { echo "download falhou"; exit 1; }
 FADE_OUT=$((D - 4))

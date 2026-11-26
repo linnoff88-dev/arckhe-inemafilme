@@ -1,6 +1,6 @@
 """Menus fixos do contrato historia (fonte única). Stdlib apenas."""
 
-VERSAO_CONTRATO = "inemafilme.historia/v1"
+VERSAO_CONTRATO = "ARCKHÉfilme.historia/v1"
 
 FUNCOES_RETENCAO = [
     "cold_open", "promessa", "escalada", "virada",

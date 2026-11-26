@@ -4,7 +4,7 @@ import enums
 
 
 def test_versao_contrato():
-    assert enums.VERSAO_CONTRATO == "inemafilme.historia/v1"
+    assert enums.VERSAO_CONTRATO == "ARCKHÉfilme.historia/v1"
 
 
 def test_funcoes_retencao_completas():

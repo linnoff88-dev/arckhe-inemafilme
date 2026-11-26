@@ -14,6 +14,6 @@
 
 ## Outras referências (no ecossistema, nêo copiadas)
 - `pixflow-trailer/examples/avatar-fogo-cinzas/` — **canônico**: decupagem de 78 shots + build com
-  todas as 18 câmeras / 6 looks / cartelas / áudio. A melhor referência de "como ver cinema → shots".
+  todas as 18 câmeras / 6 looks / cartelas / áudio. A melhor referência de "como ver cARCKHÉ → shots".
 - `pixflow/examples/demo.movie.yaml` — mínimo (2 cenas).
-- `pixflow-trailer/inteligencia-direcao.md` — a receita canônica verbo-de-cinema → primitivo.
+- `pixflow-trailer/inteligencia-direcao.md` — a receita canônica verbo-de-cARCKHÉ → primitivo.

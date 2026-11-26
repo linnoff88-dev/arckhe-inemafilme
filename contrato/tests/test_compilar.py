@@ -10,7 +10,7 @@ promessa_central: "vai dar certo?"
 duracao_alvo_s: 120
 formato: "16:9"
 voz_narrador: bella
-look_padrao: cinema-dramatico
+look_padrao: cARCKHÉ-dramatico
 ---
 
 <!-- personagem: nome=jake | aparencia=ex-fuzileiro de cabelo raspado -->
@@ -38,7 +38,7 @@ def test_personagens():
 
 def test_compilar_parcial_header():
     doc = compilar.compilar(MD_HEADER)
-    assert doc["versao_contrato"] == "inemafilme.historia/v1"
+    assert doc["versao_contrato"] == "ARCKHÉfilme.historia/v1"
     assert doc["id"] == "teste-01"
     assert len(doc["personagens"]) == 2
 

@@ -3,14 +3,14 @@
 Uso (no diretorio do projeto, com timeline.json presente):
   python3 .../filme/scripts/build_sfx.py --climax-beat b8 --hit-beats b6
   python3 .../filme/scripts/build_sfx.py --climax-sec 130.2 --hit-secs 88.7
-Lê os tempos dos beats de timeline.json -> beatStart. Requer ffmpeg, yt-dlp (via inemavox)."""
+Lê os tempos dos beats de timeline.json -> beatStart. Requer ffmpeg, yt-dlp (via ARCKHÉvox)."""
 import argparse, json, subprocess, wave, array, os, sys
 
-BAIXAR = "/home/nmaldaner/projetos/inemavox2/baixar_v1.py"
+BAIXAR = "/home/nmaldaner/projetos/ARCKHÉvox2/baixar_v1.py"
 ap = argparse.ArgumentParser()
 ap.add_argument("--climax-beat"); ap.add_argument("--climax-sec", type=float)
 ap.add_argument("--hit-beats", default=""); ap.add_argument("--hit-secs", default="")
-ap.add_argument("--query", default="cinematic braam riser impact sound effect")
+ap.add_argument("--query", default="cARCKHÉtic braam riser impact sound effect")
 a = ap.parse_args()
 
 tl = json.load(open("timeline.json"))

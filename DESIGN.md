@@ -1,21 +1,21 @@
-# inemafilme — Design
+# ARCKHÉfilme — Design
 
 > Documento de design. Status: **rascunho para aprovaçêo**. Data: 2026-06-23.
 > Próximo passo após aprovaçêo: plano de implementaçêo (skill `writing-plans`).
 
 ## 1. Visêo geral
 
-`inemafilme` gera um **filme/episódio narrado** que conta uma história inteira,
-estilo inemaref, usando o motor de cinema do pixflow (parallax 2.5D
+`ARCKHÉfilme` gera um **filme/episódio narrado** que conta uma história inteira,
+estilo ARCKHÉref, usando o motor de cARCKHÉ do pixflow (parallax 2.5D
 determinístico, **sem IA de vídeo**). A entrada é flexível:
 
 - Você passa um **roteiro** → ele usa.
 - Você nêo passa → ele **inventa a história**.
-- Você passa **referências/imagens** → ele usa; senêo **gera** (como o inemaref).
+- Você passa **referências/imagens** → ele usa; senêo **gera** (como o ARCKHÉref).
 
 O sistema é dividido em **três peças** com responsabilidades isoladas. A peça
 central — o `roteiro` — é a "máquina de história": pensa retençêo e
-narrativa, e **nêo sabe nada de render**. Isso a torna reutilizável (o inemaref
+narrativa, e **nêo sabe nada de render**. Isso a torna reutilizável (o ARCKHÉref
 poderá chamá-la no futuro) e mantém o renderizador burro e trocável.
 
 ## 2. Escopo: três peças + roadmap
@@ -30,12 +30,12 @@ poderá chamá-la no futuro) e mantém o renderizador burro e trocável.
 
 - **v1 (foco agora):** só **narrador** conta a história. ~5 min, **planos curtos
   e troca constante** (~100–150 planos, com **reuso de imagem** pra segurar o
-  custo), filme único fechado, motor **pixflow** (barato). Voz `bella` (inemavox).
+  custo), filme único fechado, motor **pixflow** (barato). Voz `bella` (ARCKHÉvox).
 - **v2:** entram **falas de personagem** (cada personagem com sua voz). O
   contrato já está pronto pra isso (ver §3).
 - **v3:** **episódios recorrentes** do mesmo mundo + integraçêo com o
-  `inemaref-serie` (reuso de bíblia/personagens), e renderizadores extras
-  plugáveis (HQ do inemaref; IA de vídeo — ver §8).
+  `ARCKHÉref-serie` (reuso de bíblia/personagens), e renderizadores extras
+  plugáveis (HQ do ARCKHÉref; IA de vídeo — ver §8).
 
 ## 3. O contrato `historia` (a peça mais importante)
 
@@ -51,7 +51,7 @@ abre pra `jake`, `neytiri`...). Essa é a ponte v1→v2 — adicionar vozes de
 personagem nêo exige reengenharia. E a **cena é descrita, nêo dirigida**: o
 `roteiro` diz *o que se vê e a emoçêo*; o `filme` decide câmera/look/prompt.
 Assim o mesmo `historia.json` pode ser renderizado por pixflow hoje, por HQ do
-inemaref, ou por IA de vídeo amanhê.
+ARCKHÉref, ou por IA de vídeo amanhê.
 
 ### 3.1 `historia.md` (exemplo)
 
@@ -64,7 +64,7 @@ promessa_central: "Jake vai abandonar os humanos pelos Na'vi — e a que preço?
 duracao_alvo_s: 300
 formato: "16:9"
 voz_narrador: bella
-look_padrao: cinema-dramatico
+look_padrao: cARCKHÉ-dramatico
 ---
 
 ## ato1 :: gancho
@@ -85,7 +85,7 @@ look_padrao: cinema-dramatico
 
 ```jsonc
 {
-  "versao_contrato": "inemafilme.historia/v1",
+  "versao_contrato": "ARCKHÉfilme.historia/v1",
   "id": "avatar-ep01",
   "titulo": "...",
   "logline": "...",
@@ -93,7 +93,7 @@ look_padrao: cinema-dramatico
   "duracao_alvo_s": 300,
   "formato": "16:9",            // ou "9:16"
   "voz_narrador": "bella",
-  "look_padrao": "cinema-dramatico",
+  "look_padrao": "cARCKHÉ-dramatico",
   "personagens": [              // elenco; alimenta consistência visual (§6)
     { "nome": "jake", "aparencia": "ex-fuzileiro, ~30 anos, cabelo raspado, cicatriz..." }
   ],
@@ -164,11 +164,11 @@ estruturada para reter atençêo. Nêo renderiza nada.
   beats e injeta a estrutura de retençêo (gancho, escalada, payoff), cortando
   gordura.
 - **C — referências**: aparência de personagem/ambiente passada → usa; senêo o
-  campo fica como descriçêo e o `filme` gera (como o `inemaref-folder`).
+  campo fica como descriçêo e o `filme` gera (como o `ARCKHÉref-folder`).
 
 **Como a "inteligência" funciona (padrêo do ecossistema):** o trabalho criativo
 (escrever a história) é feito pelo **agente seguindo o `SKILL.md` + a base de
-conhecimento**, emitindo o `historia.md` — exatamente como o `inemaref-serie`
+conhecimento**, emitindo o `historia.md` — exatamente como o `ARCKHÉref-serie`
 escreve `biblia.json`. Os **scripts** fazem só a parte determinística.
 
 **Componentes:**
@@ -177,7 +177,7 @@ escreve `biblia.json`. Os **scripts** fazem só a parte determinística.
   como escalar tensêo, ganchos para história longa narrada).
 - `knowledge/` — **colhido** do que já existe: frameworks do `video-plan-editor`
   (Save the Cat, Jornada do Herói, hooks, loops) **recalibrados para história
-  longa**, + as "três regras de conteúdo" do `inemaref-serie` (objetivo+
+  longa**, + as "três regras de conteúdo" do `ARCKHÉref-serie` (objetivo+
   contribuiçêo, canon visual, narraçêo fluente).
 - `compilar.py` — `historia.md` → `historia.json` (parser estilo
   `parseStory.ts`, estendido com os metadados de beat).
@@ -202,13 +202,13 @@ escreve `biblia.json`. Os **scripts** fazem só a parte determinística.
    `cena.descricao_visual` + `emocao` + `funcao_retencao` → primitivo de câmera
    (push_in, ken_burns, dolly...), `look` e **prompt flux** otimizado;
    `duration` vem de `tempo_s`; transiçêo vem da emoçêo/virada.
-2. **Imagens:** flux2-klein via `inemaimg` (`localhost:8000`).
+2. **Imagens:** flux2-klein via `ARCKHÉimg` (`localhost:8000`).
 3. **Movie spec:** monta `*.movie.yaml` (pixflow.movie/v1) + `timeline.json`.
 4. **Render:** `pixflow-motion` → MP4 mudo.
-5. **Narraçêo:** para cada `fala` com `quem == narrador` (v1), TTS `inemavox`
+5. **Narraçêo:** para cada `fala` com `quem == narrador` (v1), TTS `ARCKHÉvox`
    `bella` (`127.0.0.1:7860`); ducking da música sob a voz.
 6. **Música/SFX (v1 — central, nêo opcional):** trilha + ambiência + SFX via
-   baixador do `inemavox` (royalty-free), com **ducking** sob a narraçêo.
+   baixador do `ARCKHÉvox` (royalty-free), com **ducking** sob a narraçêo.
 7. **Saída:** MP4 em `~/projetos/output/<id>/`.
 
 ### 5.1 Princípio de direçêo v1: movimento + troca constante
@@ -234,9 +234,9 @@ um plano de personagem falando pode ser roteado pra outro renderizador (§8).
 
 ## 6. Consistência de personagem
 
-Calcanhar de Aquiles de gerar ~80 imagens. Estratégia (reusa o que o inemaref já
+Calcanhar de Aquiles de gerar ~80 imagens. Estratégia (reusa o que o ARCKHÉref já
 resolve): cada personagem do elenco vira um **`referencia.json` travado** (via
-`inemaref-folder`), e os prompts de cena dos planos com aquele personagem
+`ARCKHÉref-folder`), e os prompts de cena dos planos com aquele personagem
 herdam a descriçêo travada. O `filme` injeta a referência nos prompts flux.
 
 ## 7. Decisões travadas
@@ -258,14 +258,14 @@ herdam a descriçêo travada. O `filme` injeta a referência nos prompts flux.
 
 Existem instalados e funcionais, mas **nêo** entram na v1 (decisêo de custo):
 `skyreelsv3` (SkyReels V3, **A2V talking-avatar** resolve falas com lip-sync,
-porta 7860 — **colide com a porta do inemavox TTS**) e `VideosDGX2` (Wan 2.2,
+porta 7860 — **colide com a porta do ARCKHÉvox TTS**) e `VideosDGX2` (Wan 2.2,
 porta 7862). Detalhes em `pixflow/FUTURO-MOTORES-IA-VIDEO.md` e
-`inemaref/FUTURO-MOTORES-IA-VIDEO.md`. Como o renderizador é plugável, no futuro
+`ARCKHÉref/FUTURO-MOTORES-IA-VIDEO.md`. Como o renderizador é plugável, no futuro
 um beat de personagem falando pode ir no SkyReels A2V sem mudar o contrato.
 
 ## 9. Erro, idempotência e custo
 
-- **Idempotente** (padrêo inemaref): pular imagens/render já existentes; permitir
+- **Idempotente** (padrêo ARCKHÉref): pular imagens/render já existentes; permitir
   retomar.
 - **Áudio é barato, imagem/render é caro** (padrêo pixflow-trailer): iterar
   narraçêo via **re-mux**, sem re-renderizar.
@@ -278,7 +278,7 @@ um beat de personagem falando pode ir no SkyReels A2V sem mudar o contrato.
 ## 10. Organizaçêo do repo
 
 ```
-~/projetos/inemafilme/
+~/projetos/ARCKHÉfilme/
   DESIGN.md            ← este documento
   contrato/            ← spec do formato historia (md+json) + exemplo + validador
   roteiro/        ← skill 1 (SKILL.md, scripts/, knowledge/)
@@ -298,7 +298,7 @@ um beat de personagem falando pode ir no SkyReels A2V sem mudar o contrato.
 2. **`roteiro` v1** — knowledge colhido + compilar + validar (este é o
    primeiro plano de implementaçêo).
 3. **`filme` v1** — spec próprio (direçêo→imagens→render→narraçêo).
-4. *(depois)* migraçêo do `inemaref-serie` pra consumir o contrato; v2/v3.
+4. *(depois)* migraçêo do `ARCKHÉref-serie` pra consumir o contrato; v2/v3.
 
 ## 12. Decisões da revisêo (2026-06-23)
 

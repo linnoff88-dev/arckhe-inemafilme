@@ -1,6 +1,6 @@
-# Contrato `historia` (inemafilme.historia/v1)
+# Contrato `historia` (ARCKHÉfilme.historia/v1)
 
-A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json`
+A "junta" do ARCKHÉfilme. Duas camadas: `historia.md` (humano) → `historia.json`
 (máquina), via `compilar.py`. Validado por `validar.py`. **Agnóstico de render.**
 
 ## historia.md — gramática
@@ -44,10 +44,10 @@ A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json
 
 ```jsonc
 {
-  "versao_contrato": "inemafilme.historia/v1",
+  "versao_contrato": "ARCKHÉfilme.historia/v1",
   "id": "...", "titulo": "...", "logline": "...", "promessa_central": "...",
   "duracao_alvo_s": 60, "formato": "16:9", "voz_narrador": "bella",
-  "look_padrao": "cinema-dramatico",
+  "look_padrao": "cARCKHÉ-dramatico",
   "personagens": [ { "nome": "jake", "aparencia": "..." } ],
   "beats": [
     {

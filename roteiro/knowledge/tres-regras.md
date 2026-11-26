@@ -1,4 +1,4 @@
-# Três regras de conteúdo (colhido do inemaref-serie)
+# Três regras de conteúdo (colhido do ARCKHÉref-serie)
 
 1. **Objetivo + contribuiçêo.** A história tem um objetivo declarado; cada beat
    tem uma contribuiçêo clara (1 frase: o que ele entrega rumo ao objetivo).

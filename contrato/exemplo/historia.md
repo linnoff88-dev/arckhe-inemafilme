@@ -6,7 +6,7 @@ promessa_central: "Jake vai abandonar os humanos pelos Na'vi — e a que preco?"
 duracao_alvo_s: 60
 formato: "16:9"
 voz_narrador: bella
-look_padrao: cinema-dramatico
+look_padrao: cARCKHÉ-dramatico
 ---
 
 <!-- personagem: nome=jake | aparencia=ex-fuzileiro, ~30 anos, cabelo raspado, cicatriz na sobrancelha -->

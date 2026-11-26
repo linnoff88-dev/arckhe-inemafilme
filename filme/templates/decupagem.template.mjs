@@ -2,7 +2,7 @@
 // e rode:  node decupagem.mjs        (gera imagens + .movie.yaml + timeline.json)
 //          node decupagem.mjs --no-img   (só reescreve yaml/timeline)
 // A inteligência de câmera/efeitos (pools por emoção, white-flash, transições) mora no engine.
-// Catálogo de movimentos/looks: ../../inemafilme/filme/knowledge/direcao.md
+// Catálogo de movimentos/looks: ../../ARCKHÉfilme/filme/knowledge/direcao.md
 import { montarFilme } from '/home/nmaldaner/.claude/skills/filme/scripts/engine.mjs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -13,7 +13,7 @@ const NOIMG = process.argv.includes('--no-img');
 //   key:    'b1','b2',...  (vira id dos planos: b1_00, b1_01...)
 //   emocao: a do beat na historia (tensao|misterio|medo|melancolia|ternura|euforia|furia|esperanca)
 //           -> define o POOL de câmera e o ritmo (medo/fúria = cortes rápidos + crash_zoom/whip_pan)
-//   look:   noir-film | sci-fi-cyberpunk | cinema-dramatico | sonho-etereo | acao-epico | retro-vhs
+//   look:   noir-film | sci-fi-cyberpunk | cARCKHÉ-dramatico | sonho-etereo | acao-epico | retro-vhs
 //   imgs:   ~8-12 PROMPTS de plano. EXPANDA a cena.descricao_visual em ângulos variados
 //           (wide estabelecendo, detalhe/close, personagem, ambiente, movimento/ação). Quanto mais
 //           imagens, mais dinâmico (NÃO encarece o render — só a geração de imagem).
@@ -35,7 +35,7 @@ await montarFilme(BEATS, {
   title: 'TÍTULO DO FILME',
   kicker: 'subtítulo',
   // ajuste o STYLE ao universo da historia (mantenha 'no text' e a separação FG/MG/BG p/ parallax):
-  style: 'cinematic, hyperrealistic, epic dramatic volumetric lighting, vibrant colors, high detail, film grain, shallow depth of field, strong foreground / midground / deep background separation for parallax, dynamic composition, no text',
+  style: 'cARCKHÉtic, hyperrealistic, epic dramatic volumetric lighting, vibrant colors, high detail, film grain, shallow depth of field, strong foreground / midground / deep background separation for parallax, dynamic composition, no text',
   width: 1280, height: 720, fps: 30,   // 9:16 = 720x1280
   noImg: NOIMG,
 });

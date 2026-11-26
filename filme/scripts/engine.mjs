@@ -1,4 +1,4 @@
-// inemafilme/filme — MOTOR de montagem: BEATS -> imagens (flux2-klein) + .movie.yaml + timeline.json
+// ARCKHÉfilme/filme — MOTOR de montagem: BEATS -> imagens (flux2-klein) + .movie.yaml + timeline.json
 // Reusável. A decupagem (templates/decupagem.template.mjs) importa daqui e só preenche BEATS + meta.
 // A "inteligência de direção" (câmera por emoção, durações, white-flash, transições) mora AQUI.
 import { generateImage } from '/home/nmaldaner/.claude/skills/pixflow-motion/cli/genimg.mjs';
@@ -64,7 +64,7 @@ export function shotsFromBeats(BEATS, { title = 'FILME', kicker = '' } = {}) {
   return SHOTS;
 }
 
-const EMBER = 'dark cinematic background of glowing blue and teal embers and floating sparks rising through black mist, deep pure black background, atmospheric particles, no text, empty center';
+const EMBER = 'dark cARCKHÉtic background of glowing blue and teal embers and floating sparks rising through black mist, deep pure black background, atmospheric particles, no text, empty center';
 function solidColor(path, color) {
   if (existsSync(path)) return;
   const r = spawnSync('ffmpeg', ['-y', '-loglevel', 'error', '-f', 'lavfi', '-i', `color=c=${color}:s=1280x720`, '-frames:v', '1', path]);
@@ -74,7 +74,7 @@ function solidColor(path, color) {
 // monta tudo: gera imagens + escreve yaml + timeline. opts: { root, project, title, kicker, style, width, height, fps, noImg }
 export async function montarFilme(BEATS, opts) {
   const { root, project, title = 'FILME', kicker = '', width = 1280, height = 720, fps = 30, noImg = false } = opts;
-  const style = opts.style || 'cinematic, hyperrealistic, epic dramatic volumetric lighting, vibrant colors, high detail, film grain, shallow depth of field, strong foreground / midground / deep background separation for parallax, dynamic composition, no text';
+  const style = opts.style || 'cARCKHÉtic, hyperrealistic, epic dramatic volumetric lighting, vibrant colors, high detail, film grain, shallow depth of field, strong foreground / midground / deep background separation for parallax, dynamic composition, no text';
   const ASSETS = join(root, 'assets'); mkdirSync(ASSETS, { recursive: true });
   const SHOTS = shotsFromBeats(BEATS, { title, kicker });
 
@@ -103,11 +103,11 @@ export async function montarFilme(BEATS, opts) {
     lines.push(`    transition_out: ${y(s.tout || { type: 'cut' })}`);
     return lines.join('\n');
   }).join('\n\n');
-  const yaml = `# ${title} — pixflow.movie/v1 (inemafilme/filme)
+  const yaml = `# ${title} — pixflow.movie/v1 (ARCKHÉfilme/filme)
 schema: pixflow.movie/v1
 meta: { title: ${title}, author: nmaldaner }
 output: { resolution: ${width}x${height}, fps: ${fps}, filename: ${project}.mp4 }
-defaults: { look: cinema-dramatico, transition_out: { type: cut } }
+defaults: { look: cARCKHÉ-dramatico, transition_out: { type: cut } }
 audio: { track: trilha.wav, volume: 0.9 }
 assets:
   images:

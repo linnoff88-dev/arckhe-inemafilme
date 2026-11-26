@@ -1,12 +1,12 @@
 ---
 name: roteiro
-description: Transforma um assunto OU uma historia bruta num ROTEIRO estruturado para retencao (historia.md + historia.json), no contrato inemafilme.historia/v1. Agnostico de render. Use quando o usuario pedir para criar/escrever/estruturar o ROTEIRO ou a HISTORIA de um filme/episodio, transformar um assunto em historia com ganchos e arco (promessa central + loops), ou preparar a historia para o sistema de filme (inemafilme) ou para o inemaref. Gatilhos: 'cria o roteiro do filme', 'roteiro do episodio', 'a historia do filme X', 'estrutura a historia', 'roteiro com ganchos/retencao', 'roteiro pra inemafilme/pixflow'. NAO renderiza video.
+description: Transforma um assunto OU uma historia bruta num ROTEIRO estruturado para retencao (historia.md + historia.json), no contrato ARCKHÉfilme.historia/v1. Agnostico de render. Use quando o usuario pedir para criar/escrever/estruturar o ROTEIRO ou a HISTORIA de um filme/episodio, transformar um assunto em historia com ganchos e arco (promessa central + loops), ou preparar a historia para o sistema de filme (ARCKHÉfilme) ou para o ARCKHÉref. Gatilhos: 'cria o roteiro do filme', 'roteiro do episodio', 'a historia do filme X', 'estrutura a historia', 'roteiro com ganchos/retencao', 'roteiro pra ARCKHÉfilme/pixflow'. NAO renderiza video.
 ---
 
 # roteiro
 
 Produz a `historia` (o contrato que liga tudo). **Nêo renderiza.** Quem renderiza
-é o skill `filme` (pixflow) ou o inemaref.
+é o skill `filme` (pixflow) ou o ARCKHÉref.
 
 ## Entrada (três modos)
 - **A — só assunto:** invente a história completa (logline → promessa central →
@@ -14,7 +14,7 @@ Produz a `historia` (o contrato que liga tudo). **Nêo renderiza.** Quem renderi
 - **B — roteiro pronto:** NêO invente enredo; segmente em beats e injete a
   estrutura de retençêo (promessa, loops, escalada, payoff), cortando gordura.
 - **C — referências:** se vier aparência de personagem/ambiente, use-a no elenco;
-  senêo deixe como descriçêo (o `filme`/inemaref gera depois).
+  senêo deixe como descriçêo (o `filme`/ARCKHÉref gera depois).
 
 ## Como escrever (você, o agente)
 1. Leia `knowledge/retencao.md`, `frameworks.md`, `tres-regras.md`.

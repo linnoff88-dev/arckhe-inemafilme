@@ -1,5 +1,5 @@
 {
-  "versao_contrato": "inemafilme.historia/v1",
+  "versao_contrato": "ARCKHÉfilme.historia/v1",
   "id": "avatar-eco-cinzas",
   "titulo": "Avatar — O Eco das Cinzas",
   "logline": "Geracoes apos a guerra, uma jovem Na'vi que ouve o que Eywa esqueceu precisa entrar na zona morta antes que o silencio engula Pandora.",
@@ -7,7 +7,7 @@
   "duracao_alvo_s": 300,
   "formato": "16:9",
   "voz_narrador": "bella",
-  "look_padrao": "cinema-dramatico",
+  "look_padrao": "cARCKHÉ-dramatico",
   "personagens": [
     {
       "nome": "rini",
@@ -113,7 +113,7 @@
           "neto",
           "rini"
         ],
-        "look_sugerido": "cinema-dramatico"
+        "look_sugerido": "cARCKHÉ-dramatico"
       },
       "falas": [
         {
@@ -182,7 +182,7 @@
           "rini",
           "neto"
         ],
-        "look_sugerido": "cinema-dramatico"
+        "look_sugerido": "cARCKHÉ-dramatico"
       },
       "falas": [
         {

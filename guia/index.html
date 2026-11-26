@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>inemafilme — filme narrado sem IA de vídeo</title>
-<meta name="description" content="inemafilme: sistema que transforma um assunto ou roteiro num filme/episódio narrado, motor pixflow (parallax 2.5D determinístico), sem IA de vídeo.">
+<title>ARCKHÉfilme — filme narrado sem IA de vídeo</title>
+<meta name="description" content="ARCKHÉfilme: sistema que transforma um assunto ou roteiro num filme/episódio narrado, motor pixflow (parallax 2.5D determinístico), sem IA de vídeo.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
@@ -36,8 +36,8 @@
   nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
   nav .brand .emoji{font-size:1.25rem}
   nav .sep{color:var(--mut);opacity:.45}
-  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
-  nav .inema:hover{filter:brightness(1.15)}
+  nav .ARCKHÉ{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .ARCKHÉ:hover{filter:brightness(1.15)}
   nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
   nav .pro:hover{filter:brightness(1.15)}
   nav .clubpro{display:inline-flex;align-items:center;gap:6px}
@@ -95,12 +95,12 @@
 <body>
 
 <nav><div class="wrap">
-  <a class="brand" href="#top"><span class="emoji">🎬</span> inemafilme</a>
+  <a class="brand" href="#top"><span class="emoji">🎬</span> ARCKHÉfilme</a>
   <span class="sep">|</span>
   <span class="clubpro">
-    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <a class="ARCKHÉ" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>
     <span class="sep">-</span>
-    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+    <a class="pro" href="https://ARCKHÉ.pro" target="_blank" rel="noopener">PRO</a>
   </span>
   <div class="links">
     <a class="sec" href="#oque">O que é</a>
@@ -109,7 +109,7 @@
     <a class="sec" href="#exemplos">Exemplo</a>
     <a class="sec" href="#roadmap">Roadmap</a>
     <button class="tgl" id="themeToggle" aria-label="Alternar tema" title="Alternar tema">🌙</button>
-    <a class="btn" href="https://github.com/inematds/inemafilme" target="_blank" rel="noopener">GitHub</a>
+    <a class="btn" href="https://github.com/linnoff88-dev/ARCKHÉfilme" target="_blank" rel="noopener">GitHub</a>
   </div>
 </div></nav>
 
@@ -122,17 +122,17 @@
       <p class="lead">Passa um assunto ou um roteiro pronto — o sistema estrutura a história com retençêo (promessa central + loops), e renderiza um filme dinâmico no motor pixflow: parallax 2.5D determinístico, sem gerador de vídeo por IA.</p>
       <div class="cta">
         <a class="btn" href="#guia">Começar o guia</a>
-        <a class="btn ghost" href="https://github.com/inematds/inemafilme" target="_blank" rel="noopener">Ver no GitHub</a>
+        <a class="btn ghost" href="https://github.com/linnoff88-dev/ARCKHÉfilme" target="_blank" rel="noopener">Ver no GitHub</a>
       </div>
     </div>
-    <figure><img src="assets/hero.png" alt="Ilustraçêo do inemafilme: linha de produçêo de filme narrado, câmera e story beats"></figure>
+    <figure><img src="assets/hero.png" alt="Ilustraçêo do ARCKHÉfilme: linha de produçêo de filme narrado, câmera e story beats"></figure>
   </div>
 </header>
 
 <section id="oque"><div class="wrap">
   <span class="chip">O que é</span>
   <h2>Três peças isoladas, uma "junta" no meio</h2>
-  <p class="sub">O <code>inemafilme</code> nêo é um monólito: separa "pensar a história" de "renderizar o vídeo" através de um contrato de dados neutro. Isso deixa o roteiro reutilizável (por outros sistemas, como o inemaref) e o renderizador trocável.</p>
+  <p class="sub">O <code>ARCKHÉfilme</code> nêo é um monólito: separa "pensar a história" de "renderizar o vídeo" através de um contrato de dados neutro. Isso deixa o roteiro reutilizável (por outros sistemas, como o ARCKHÉref) e o renderizador trocável.</p>
   <div class="grid g3">
     <div class="card"><h3>📜 Contrato <code>historia</code></h3><p>Formato híbrido md (humano, editável) + json (máquina). Agnóstico de render — o mesmo <code>historia.json</code> pode virar filme pixflow, HQ ou, no futuro, vídeo por IA.</p></div>
     <div class="card"><h3>✍️ Skill <code>roteiro</code></h3><p>Assunto ou roteiro bruto → <code>historia.md</code>/<code>.json</code> validados, com engenharia de retençêo: promessa central, loops abertos/fechados, escalada, payoff. Nêo renderiza nada.</p></div>
@@ -170,13 +170,13 @@
   <div class="grid g3">
     <div class="card"><h3>Python 3 (contrato/roteiro)</h3><p>Compilar e validar a história sêo scripts puros, sem dependências externas.</p><pre><span class="c"># checar</span>
 python3 --version</pre></div>
-    <div class="card"><h3>inemaimg (imagens)</h3><p>flux2-klein servindo em <code>localhost:8000</code> — gera os planos da decupagem.</p><pre><span class="c"># checar</span>
+    <div class="card"><h3>ARCKHÉimg (imagens)</h3><p>flux2-klein servindo em <code>localhost:8000</code> — gera os planos da decupagem.</p><pre><span class="c"># checar</span>
 curl -s localhost:8000</pre></div>
     <div class="card"><h3>pixflow-motion (render)</h3><p>Motor de parallax 2.5D. Confira as dependências antes de renderizar.</p><pre><span class="c"># checar deps</span>
 node ~/.claude/skills/pixflow-motion/cli/pixflow-motion.mjs check-deps</pre></div>
-    <div class="card"><h3>inemavox (narraçêo)</h3><p>Voz <code>bella</code> em <code>:7860</code> (pode oscilar) + <code>edge-tts</code> como fallback/segunda voz.</p><pre><span class="c"># sondar</span>
+    <div class="card"><h3>ARCKHÉvox (narraçêo)</h3><p>Voz <code>bella</code> em <code>:7860</code> (pode oscilar) + <code>edge-tts</code> como fallback/segunda voz.</p><pre><span class="c"># sondar</span>
 curl -s 127.0.0.1:7860</pre></div>
-    <div class="card"><h3>inemavox2 + ffmpeg (música/SFX)</h3><p><code>baixar_v1.py</code> (yt-dlp) baixa trilha e efeitos; <code>ffmpeg</code> faz o mux final.</p><pre><span class="c"># checar</span>
+    <div class="card"><h3>ARCKHÉvox2 + ffmpeg (música/SFX)</h3><p><code>baixar_v1.py</code> (yt-dlp) baixa trilha e efeitos; <code>ffmpeg</code> faz o mux final.</p><pre><span class="c"># checar</span>
 ffmpeg -version</pre></div>
     <div class="card"><h3>pytest (dev, opcional)</h3><p>Roda a suíte do contrato (<code>compilar</code>/<code>validar</code>/<code>enums</code>).</p><pre><span class="c"># instalar</span>
 pip install -r requirements-dev.txt</pre></div>
@@ -222,7 +222,7 @@ pip install -r requirements-dev.txt</pre></div>
     <p>Preencha <code>narracao.py</code> (bella + Giuseppe) cronometrado pelo <code>timeline.json</code>; baixe trilha com build cinemático e monte o SFX (braam no clímax, hits na tensêo).</p>
 <pre><span class="k">cp filme/templates/narracao.template.py narracao.py</span>  <span class="c"># preenche LINES</span>
 <span class="k">python3 narracao.py</span>                             <span class="c"># -> narracao.wav</span>
-<span class="k">filme/scripts/baixar_musica.sh "cinematic build" &lt;dur&gt;</span>  <span class="c"># -> music_bed.wav</span>
+<span class="k">filme/scripts/baixar_musica.sh "cARCKHÉtic build" &lt;dur&gt;</span>  <span class="c"># -> music_bed.wav</span>
 <span class="k">python3 filme/scripts/build_sfx.py --climax-beat &lt;id&gt; --hit-beats &lt;id&gt;</span>  <span class="c"># -> sfx.wav</span></pre>
   </div></div>
 
@@ -261,21 +261,21 @@ pip install -r requirements-dev.txt</pre></div>
   <p class="sub">O contrato já foi desenhado pensando nas próximas fases — nenhuma delas exige reengenharia do formato.</p>
   <div class="phase"><div class="tag">v1</div><div class="d"><strong>Só narrador (atual)</strong><span>Filme único fechado, ~5 min, planos curtos com alta troca de imagem, motor pixflow.</span></div></div>
   <div class="phase"><div class="tag">v2</div><div class="d"><strong>Falas de personagem</strong><span>O contrato já tem <code>quem</code> por fala — cada personagem ganha sua própria voz.</span></div></div>
-  <div class="phase"><div class="tag">v3</div><div class="d"><strong>Episódios recorrentes</strong><span>Integraçêo com o <code>inemaref-serie</code> (reuso de bíblia/personagens) e renderizadores plugáveis (HQ, IA de vídeo).</span></div></div>
+  <div class="phase"><div class="tag">v3</div><div class="d"><strong>Episódios recorrentes</strong><span>Integraçêo com o <code>ARCKHÉref-serie</code> (reuso de bíblia/personagens) e renderizadores plugáveis (HQ, IA de vídeo).</span></div></div>
 </div></section>
 
 <footer>
   <div class="wrap">
-    <div class="pill">Python 3</div><div class="pill">Node.js</div><div class="pill">pixflow</div><div class="pill">flux2-klein</div><div class="pill">inemavox</div>
-    <p style="margin-top:18px">inemafilme · sistema de filme narrado, motor pixflow, sem IA de vídeo ·
-      <a href="https://github.com/inematds/inemafilme">inematds/inemafilme</a> ·
-      <a href="https://inema.club">INEMA.CLUB</a></p>
+    <div class="pill">Python 3</div><div class="pill">Node.js</div><div class="pill">pixflow</div><div class="pill">flux2-klein</div><div class="pill">ARCKHÉvox</div>
+    <p style="margin-top:18px">ARCKHÉfilme · sistema de filme narrado, motor pixflow, sem IA de vídeo ·
+      <a href="https://github.com/linnoff88-dev/ARCKHÉfilme">linnoff88-dev/ARCKHÉfilme</a> ·
+      <a href="https://ARCKHÉ AI">ARCKHÉ AI</a></p>
   </div>
 </footer>
 
 <script>
   (function(){
-    var KEY='inemafilme-theme';
+    var KEY='ARCKHÉfilme-theme';
     var b=document.body, t=document.getElementById('themeToggle');
     if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; }
     t.addEventListener('click',function(){

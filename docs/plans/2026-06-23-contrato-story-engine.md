@@ -4,14 +4,14 @@
 
 **Goal:** Entregar o contrato `historia` (formato + compilador + validador) e o skill `story-engine` v1, que transforma um assunto/roteiro numa `historia.md`/`historia.json` estruturada para retençêo — sem renderizar nada.
 
-**Architecture:** O contrato é a "junta" do sistema. Duas camadas: `historia.md` (humano, editável) compilado para `historia.json` (máquina, consumido por renderizadores). As ferramentas do contrato (`compilar.py`, `validar.py`, `enums.py`) vivem em `contrato/` e sêo reusáveis por qualquer consumidor (story-engine, filme, inemaref). O `story-engine` é um skill (SKILL.md + knowledge) que **escreve** a `historia.md` (trabalho do agente, padrêo inemaref) e **chama** as ferramentas do contrato para compilar/validar.
+**Architecture:** O contrato é a "junta" do sistema. Duas camadas: `historia.md` (humano, editável) compilado para `historia.json` (máquina, consumido por renderizadores). As ferramentas do contrato (`compilar.py`, `validar.py`, `enums.py`) vivem em `contrato/` e sêo reusáveis por qualquer consumidor (story-engine, filme, ARCKHÉref). O `story-engine` é um skill (SKILL.md + knowledge) que **escreve** a `historia.md` (trabalho do agente, padrêo ARCKHÉref) e **chama** as ferramentas do contrato para compilar/validar.
 
 **Tech Stack:** Python 3 (stdlib apenas para `compilar.py`/`validar.py`/`enums.py` — sem dependências externas); `pytest` apenas para os testes; Markdown para SKILL.md e knowledge.
 
 ## Global Constraints
 
 - **Campos do contrato em português** (`titulo`, `funcao_retencao`, `quem`, `promessa_central`...).
-- **`versao_contrato` = `"inemafilme.historia/v1"`** (string exata).
+- **`versao_contrato` = `"ARCKHÉfilme.historia/v1"`** (string exata).
 - **`funcao_retencao` ∈** `cold_open`, `promessa`, `escalada`, `virada`, `climax`, `respiro`, `payoff`, `gancho_proximo` (ascii, sem acento).
 - **`emocao` ∈** `tensao`, `medo`, `melancolia`, `esperanca`, `euforia`, `misterio`, `ternura`, `furia` (ascii, sem acento).
 - **`formato` ∈** `16:9`, `9:16`.
@@ -26,7 +26,7 @@
 ## File Structure
 
 ```
-~/projetos/inemafilme/
+~/projetos/ARCKHÉfilme/
   contrato/
     enums.py                 # menus fixos + versao_contrato (fonte única)
     compilar.py              # historia.md -> dict/historia.json (stdlib)
@@ -44,7 +44,7 @@
     knowledge/
       retencao.md            # promessa central + loops + curiosity gap + escalada
       frameworks.md          # Save the Cat / Jornada do Herói recalibrados p/ longo
-      tres-regras.md         # colhido do inemaref-serie
+      tres-regras.md         # colhido do ARCKHÉref-serie
   docs/plans/2026-06-23-contrato-story-engine.md   # este plano
   requirements-dev.txt       # pytest
   .gitignore
@@ -82,9 +82,9 @@ __pycache__/
 
 `README.md`:
 ```markdown
-# inemafilme
+# ARCKHÉfilme
 
-Sistema de filme/episódio narrado (estilo inemaref, motor pixflow, sem IA de vídeo).
+Sistema de filme/episódio narrado (estilo ARCKHÉref, motor pixflow, sem IA de vídeo).
 Ver `DESIGN.md` para a arquitetura e `docs/plans/` para os planos.
 
 Sub-projeto 1 (este): contrato `historia` + `story-engine`.
@@ -92,7 +92,7 @@ Sub-projeto 1 (este): contrato `historia` + `story-engine`.
 
 - [ ] **Step 2: Install dev deps**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme && python3 -m pip install -r requirements-dev.txt`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme && python3 -m pip install -r requirements-dev.txt`
 Expected: pytest instalado (ou já satisfeito).
 
 - [ ] **Step 3: Write the failing test**
@@ -104,7 +104,7 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 import enums
 
 def test_versao_contrato():
-    assert enums.VERSAO_CONTRATO == "inemafilme.historia/v1"
+    assert enums.VERSAO_CONTRATO == "ARCKHÉfilme.historia/v1"
 
 def test_funcoes_retencao_completas():
     assert enums.FUNCOES_RETENCAO == [
@@ -125,7 +125,7 @@ def test_formatos_e_id_promessa():
 
 - [ ] **Step 4: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_enums.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_enums.py -v`
 Expected: FAIL com `ModuleNotFoundError: No module named 'enums'`.
 
 - [ ] **Step 5: Write minimal implementation**
@@ -134,7 +134,7 @@ Expected: FAIL com `ModuleNotFoundError: No module named 'enums'`.
 ```python
 """Menus fixos do contrato historia (fonte única). Stdlib apenas."""
 
-VERSAO_CONTRATO = "inemafilme.historia/v1"
+VERSAO_CONTRATO = "ARCKHÉfilme.historia/v1"
 
 FUNCOES_RETENCAO = [
     "cold_open", "promessa", "escalada", "virada",
@@ -154,13 +154,13 @@ ID_PROMESSA = "promessa-central"
 
 - [ ] **Step 6: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_enums.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_enums.py -v`
 Expected: PASS (4 passed).
 
 - [ ] **Step 7: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git init -q 2>/dev/null; git add -A
 git commit -q -m "feat(contrato): scaffold + enums fixos do contrato historia"
 ```
@@ -193,7 +193,7 @@ promessa_central: "vai dar certo?"
 duracao_alvo_s: 120
 formato: "16:9"
 voz_narrador: bella
-look_padrao: cinema-dramatico
+look_padrao: cARCKHÉ-dramatico
 ---
 
 <!-- personagem: nome=jake | aparencia=ex-fuzileiro de cabelo raspado -->
@@ -218,14 +218,14 @@ def test_personagens():
 
 def test_compilar_parcial_header():
     doc = compilar.compilar(MD_HEADER)
-    assert doc["versao_contrato"] == "inemafilme.historia/v1"
+    assert doc["versao_contrato"] == "ARCKHÉfilme.historia/v1"
     assert doc["id"] == "teste-01"
     assert len(doc["personagens"]) == 2
 ```
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py -v`
 Expected: FAIL com `ModuleNotFoundError: No module named 'compilar'`.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -292,13 +292,13 @@ def compilar(texto):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py -v`
 Expected: PASS (3 passed).
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): compilar parseia frontmatter e personagens"
 ```
 
@@ -365,7 +365,7 @@ def test_compilar_completo_tem_beats():
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py -v`
 Expected: FAIL com `AttributeError: module 'compilar' has no attribute 'parse_beats'`.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -428,13 +428,13 @@ def parse_beats(corpo):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py -v`
 Expected: PASS (8 passed).
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): compilar parseia beats (meta, loop, cena, falas)"
 ```
 
@@ -463,7 +463,7 @@ promessa_central: "Jake vai abandonar os humanos pelos Na'vi — e a que preco?"
 duracao_alvo_s: 60
 formato: "16:9"
 voz_narrador: bella
-look_padrao: cinema-dramatico
+look_padrao: cARCKHÉ-dramatico
 ---
 
 <!-- personagem: nome=jake | aparencia=ex-fuzileiro, ~30 anos, cabelo raspado, cicatriz na sobrancelha -->
@@ -530,7 +530,7 @@ def test_golden_exemplo():
 
 - [ ] **Step 3: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py::test_golden_exemplo -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py::test_golden_exemplo -v`
 Expected: FAIL com `FileNotFoundError: .../exemplo/historia.json`.
 
 - [ ] **Step 4: Add the CLI and generate the golden**
@@ -553,22 +553,22 @@ if __name__ == "__main__":
 ```
 
 Gerar o golden:
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 compilar.py exemplo/historia.md > exemplo/historia.json`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 compilar.py exemplo/historia.md > exemplo/historia.json`
 Expected: cria `exemplo/historia.json` com 8 beats e 3 personagens.
 
 Conferência rápida:
-Run: `python3 -c "import json;d=json.load(open('/home/nmaldaner/projetos/inemafilme/contrato/exemplo/historia.json'));print(len(d['beats']),len(d['personagens']),d['versao_contrato'])"`
-Expected: `8 3 inemafilme.historia/v1`
+Run: `python3 -c "import json;d=json.load(open('/home/nmaldaner/projetos/ARCKHÉfilme/contrato/exemplo/historia.json'));print(len(d['beats']),len(d['personagens']),d['versao_contrato'])"`
+Expected: `8 3 ARCKHÉfilme.historia/v1`
 
 - [ ] **Step 5: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_compilar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_compilar.py -v`
 Expected: PASS (9 passed).
 
 - [ ] **Step 6: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): CLI do compilar + exemplo canonico (golden)"
 ```
 
@@ -622,7 +622,7 @@ def test_schema_funcao_e_emocao_invalidas():
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py -v`
 Expected: FAIL com `ModuleNotFoundError: No module named 'validar'`.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -666,13 +666,13 @@ def validar_schema(doc):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py -v`
 Expected: PASS (4 passed).
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): validar_schema do contrato historia"
 ```
 
@@ -734,7 +734,7 @@ def test_validar_integra_schema_e_retencao():
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py -v`
 Expected: FAIL com `AttributeError: module 'validar' has no attribute 'validar_retencao'`.
 
 - [ ] **Step 3: Write minimal implementation**
@@ -807,13 +807,13 @@ def validar(doc, **kw):
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py -v`
 Expected: PASS (10 passed).
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): checklist de retencao (promessa, loops, deserto, escalada)"
 ```
 
@@ -847,7 +847,7 @@ def test_cli_aprova_exemplo():
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py::test_cli_aprova_exemplo -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py::test_cli_aprova_exemplo -v`
 Expected: FAIL (retorno 2 / "uso:" — sem `main` ainda; ou exit nêo-0).
 
 - [ ] **Step 3: Add the CLI**
@@ -875,17 +875,17 @@ if __name__ == "__main__":
 
 - [ ] **Step 4: Run test to verify it passes (full suite)**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/ -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/ -v`
 Expected: PASS (todos: enums 4 + compilar 9 + validar 11).
 
 Conferência manual do CLI:
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 validar.py exemplo/historia.json; echo "exit=$?"`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 validar.py exemplo/historia.json; echo "exit=$?"`
 Expected: imprime `OK` e `exit=0`.
 
 - [ ] **Step 5: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(contrato): CLI do validar (exit code) + suite verde"
 ```
 
@@ -926,16 +926,16 @@ def test_exemplo_exercita_retencao():
 
 - [ ] **Step 2: Run test to verify it fails or passes**
 
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py::test_exemplo_exercita_retencao -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/test_validar.py::test_exemplo_exercita_retencao -v`
 Expected: PASS (o exemplo da Task 4 já cobre). Se FALHAR, corrigir `exemplo/historia.md` e regenerar o golden (Task 4, Step 4) antes de seguir — o exemplo é a referência viva do que o skill ensina.
 
 - [ ] **Step 3: Write `contrato/CONTRATO.md`**
 
 `contrato/CONTRATO.md`:
 ```markdown
-# Contrato `historia` (inemafilme.historia/v1)
+# Contrato `historia` (ARCKHÉfilme.historia/v1)
 
-A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json`
+A "junta" do ARCKHÉfilme. Duas camadas: `historia.md` (humano) → `historia.json`
 (máquina), via `compilar.py`. Validado por `validar.py`. **Agnóstico de render.**
 
 ## historia.md — gramática
@@ -1045,7 +1045,7 @@ Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleraçêo no ato 3.
 
 `story-engine/knowledge/tres-regras.md`:
 ```markdown
-# Três regras de conteúdo (colhido do inemaref-serie)
+# Três regras de conteúdo (colhido do ARCKHÉref-serie)
 
 1. **Objetivo + contribuiçêo.** A história tem um objetivo declarado; cada beat
    tem uma contribuiçêo clara (1 frase: o que ele entrega rumo ao objetivo).
@@ -1063,13 +1063,13 @@ Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleraçêo no ato 3.
 ```markdown
 ---
 name: story-engine
-description: Transforma um assunto OU um roteiro numa historia estruturada para retencao (historia.md + historia.json), no contrato inemafilme.historia/v1. Agnostico de render. Use quando o usuario pedir para criar/estruturar a historia de um filme/episodio, transformar um assunto em roteiro com ganchos e arco, ou preparar a historia para o sistema de filme (inemafilme) ou para o inemaref. NAO renderiza video.
+description: Transforma um assunto OU um roteiro numa historia estruturada para retencao (historia.md + historia.json), no contrato ARCKHÉfilme.historia/v1. Agnostico de render. Use quando o usuario pedir para criar/estruturar a historia de um filme/episodio, transformar um assunto em roteiro com ganchos e arco, ou preparar a historia para o sistema de filme (ARCKHÉfilme) ou para o ARCKHÉref. NAO renderiza video.
 ---
 
 # story-engine
 
 Produz a `historia` (o contrato que liga tudo). **Nêo renderiza.** Quem rende é o
-skill `filme` (pixflow) ou o inemaref.
+skill `filme` (pixflow) ou o ARCKHÉref.
 
 ## Entrada (três modos)
 - **A — só assunto:** invente a história completa (logline → promessa central →
@@ -1077,7 +1077,7 @@ skill `filme` (pixflow) ou o inemaref.
 - **B — roteiro pronto:** NêO invente enredo; segmente em beats e injete a
   estrutura de retençêo (promessa, loops, escalada, payoff), cortando gordura.
 - **C — referências:** se vier aparência de personagem/ambiente, use-a no elenco;
-  senêo deixe como descriçêo (o `filme`/inemaref gera depois).
+  senêo deixe como descriçêo (o `filme`/ARCKHÉref gera depois).
 
 ## Como escrever (você, o agente)
 1. Leia `knowledge/retencao.md`, `frameworks.md`, `tres-regras.md`.
@@ -1105,17 +1105,17 @@ sêo opcionais.
 - [ ] **Step 7: Install the skill + run the full suite**
 
 Symlink (torna o skill chamável de qualquer projeto):
-Run: `ln -sfn /home/nmaldaner/projetos/inemafilme/story-engine /home/nmaldaner/.claude/skills/story-engine && ls -l /home/nmaldaner/.claude/skills/story-engine`
+Run: `ln -sfn /home/nmaldaner/projetos/ARCKHÉfilme/story-engine /home/nmaldaner/.claude/skills/story-engine && ls -l /home/nmaldaner/.claude/skills/story-engine`
 Expected: symlink criado apontando para o diretório do skill.
 
 Suite completa:
-Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/ -v`
+Run: `cd /home/nmaldaner/projetos/ARCKHÉfilme/contrato && python3 -m pytest tests/ -v`
 Expected: PASS (todos verdes, incluindo `test_exemplo_exercita_retencao`).
 
 - [ ] **Step 8: Commit**
 
 ```bash
-cd /home/nmaldaner/projetos/inemafilme
+cd /home/nmaldaner/projetos/ARCKHÉfilme
 git add -A && git commit -q -m "feat(story-engine): SKILL.md + knowledge + CONTRATO.md; skill instalado"
 ```
 
@@ -1131,7 +1131,7 @@ git add -A && git commit -q -m "feat(story-engine): SKILL.md + knowledge + CONTR
 - Cena descrita (render-agnóstica), `look_sugerido` nêo validada por enum (§3, constraints) → Task 3 + Task 5 (sem enum de look). ✔
 - story-engine: modos A/B/C, "inteligência = agente", knowledge colhido (§4) → Task 8. ✔
 - Guarda de custo `max_planos`, tempo vs duraçêo (§9) → Task 6 (avisos). ✔
-- **Fora de escopo deste plano (corretamente):** `filme`/pixflow (§5), consistência via inemaref-folder (§6), motores de IA (§8), migraçêo inemaref. Ganham planos próprios.
+- **Fora de escopo deste plano (corretamente):** `filme`/pixflow (§5), consistência via ARCKHÉref-folder (§6), motores de IA (§8), migraçêo ARCKHÉref. Ganham planos próprios.
 
 **2. Placeholder scan:** Nenhum "TODO/TBD/fill in". Todo passo de código mostra o código; todo comando mostra o esperado. ✔
 
