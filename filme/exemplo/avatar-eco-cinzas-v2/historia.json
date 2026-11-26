@@ -15,7 +15,7 @@
     },
     {
       "nome": "saria",
-      "aparencia": "Tsahik anciã Na'vi, cega, tatuagens brancas pelo corpo, cabelos longos prateados, postura serena"
+      "aparencia": "Tsahik anciê Na'vi, cega, tatuagens brancas pelo corpo, cabelos longos prateados, postura serena"
     },
     {
       "nome": "neto",
@@ -142,7 +142,7 @@
         ]
       },
       "cena": {
-        "descricao_visual": "anciã cega de tatuagens brancas tocando a testa de Rini sob uma arvore-das-almas fraca e tremeluzente, raizes luminosas se estendendo na escuridao",
+        "descricao_visual": "anciê cega de tatuagens brancas tocando a testa de Rini sob uma arvore-das-almas fraca e tremeluzente, raizes luminosas se estendendo na escuridao",
         "ambiente": "arvore das almas enfraquecida, a noite",
         "personagens_em_cena": [
           "saria",
@@ -153,7 +153,7 @@
       "falas": [
         {
           "quem": "narrador",
-          "texto": "A anciã Saria, a Tsahik, finalmente contou a verdade que a aldeia escondia ha geracoes."
+          "texto": "A anciê Saria, a Tsahik, finalmente contou a verdade que a aldeia escondia ha geracoes."
         },
         {
           "quem": "narrador",
@@ -175,7 +175,7 @@
         "fecha": []
       },
       "cena": {
-        "descricao_visual": "close das maos da anciã trancando delicadamente um fio prateado do proprio cabelo nas trancas de Rini, Neto vazio sentado ao fundo olhando o nada",
+        "descricao_visual": "close das maos da anciê trancando delicadamente um fio prateado do proprio cabelo nas trancas de Rini, Neto vazio sentado ao fundo olhando o nada",
         "ambiente": "interior quente da maloca, fogueira baixa",
         "personagens_em_cena": [
           "saria",
@@ -191,7 +191,7 @@
         },
         {
           "quem": "narrador",
-          "texto": "A anciã trancou em seu cabelo um fio do proprio cabelo prateado."
+          "texto": "A anciê trancou em seu cabelo um fio do proprio cabelo prateado."
         },
         {
           "quem": "saria",
@@ -294,7 +294,7 @@
       "falas": [
         {
           "quem": "narrador",
-          "texto": "O esquecimento quase a tomou por inteiro. No ultimo instante, os dedos dela encontraram o fio da anciã. E ela lembrou quem era."
+          "texto": "O esquecimento quase a tomou por inteiro. No ultimo instante, os dedos dela encontraram o fio da anciê. E ela lembrou quem era."
         },
         {
           "quem": "narrador",

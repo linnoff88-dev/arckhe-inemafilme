@@ -17,9 +17,9 @@ A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json
   e/ou fechar vários loops). Ex.: `<!-- loop: fecha=lealdade,guerra | abre=fuga -->`.
 - `cena`: `descricao` (visual), `ambiente`, `personagens` (csv), `look` (dica).
 
-**Prosa do beat:** linhas `> ...` = narração (`quem=narrador`); linhas
-`[Nome]: ...` = fala de personagem (`quem=nome`, minúsculo). Na v1 só a narração
-é usada pelo render; falas de personagem já são registradas para a v2.
+**Prosa do beat:** linhas `> ...` = narraçêo (`quem=narrador`); linhas
+`[Nome]: ...` = fala de personagem (`quem=nome`, minúsculo). Na v1 só a narraçêo
+é usada pelo render; falas de personagem já sêo registradas para a v2.
 
 ## Menus fixos (enums)
 
@@ -29,13 +29,13 @@ A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json
   ternura · furia
 - `formato`: 16:9 · 9:16
 
-(`look` NÃO é validado por enum — é dica de render, decisão do skill `filme`.)
+(`look` NêO é validado por enum — é dica de render, decisêo do skill `filme`.)
 
-## Regras de retenção (validadas mecanicamente)
+## Regras de retençêo (validadas mecanicamente)
 
 - Existe `promessa_central` e um beat `cold_open`/`promessa` no ato 1 que a planta.
 - A promessa central é um loop com id **`promessa-central`**, que só pode
-  **fechar** num beat `climax`/`payoff` (não antes).
+  **fechar** num beat `climax`/`payoff` (nêo antes).
 - **Sem "deserto":** depois de cada beat (menos o último) há ≥1 loop aberto.
 - Há `escalada` e há `climax`/`payoff`.
 - `Σ tempo_s ≈ duracao_alvo_s` (±15%, aviso). `nº de beats ≤ max_planos` (aviso).

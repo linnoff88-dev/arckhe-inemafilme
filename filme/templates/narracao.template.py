@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""NARRAÇÃO — copie p/ o diretorio do projeto, preencha LINES, rode: python3 narracao.py
+"""NARRAÇêO — copie p/ o diretorio do projeto, preencha LINES, rode: python3 narracao.py
 Gera narracao.wav cronometrada nos beats. Vozes:
   - 'bella'    -> inemavox :7860 (voz default do Nei, intima) — SONDAR antes (pode oscilar)
   - 'giuseppe' -> edge-tts it-IT-GiuseppeMultilingualNeural (grave/epico) p/ abertura, climax, frase final

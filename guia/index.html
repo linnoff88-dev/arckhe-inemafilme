@@ -119,24 +119,24 @@
     <div>
       <span class="chip">Filme narrado · sem IA de vídeo</span>
       <h1>De um assunto a um <span class="amb">filme narrado</span> inteiro</h1>
-      <p class="lead">Passa um assunto ou um roteiro pronto — o sistema estrutura a história com retenção (promessa central + loops), e renderiza um filme dinâmico no motor pixflow: parallax 2.5D determinístico, sem gerador de vídeo por IA.</p>
+      <p class="lead">Passa um assunto ou um roteiro pronto — o sistema estrutura a história com retençêo (promessa central + loops), e renderiza um filme dinâmico no motor pixflow: parallax 2.5D determinístico, sem gerador de vídeo por IA.</p>
       <div class="cta">
         <a class="btn" href="#guia">Começar o guia</a>
         <a class="btn ghost" href="https://github.com/inematds/inemafilme" target="_blank" rel="noopener">Ver no GitHub</a>
       </div>
     </div>
-    <figure><img src="assets/hero.png" alt="Ilustração do inemafilme: linha de produção de filme narrado, câmera e story beats"></figure>
+    <figure><img src="assets/hero.png" alt="Ilustraçêo do inemafilme: linha de produçêo de filme narrado, câmera e story beats"></figure>
   </div>
 </header>
 
 <section id="oque"><div class="wrap">
   <span class="chip">O que é</span>
   <h2>Três peças isoladas, uma "junta" no meio</h2>
-  <p class="sub">O <code>inemafilme</code> não é um monólito: separa "pensar a história" de "renderizar o vídeo" através de um contrato de dados neutro. Isso deixa o roteiro reutilizável (por outros sistemas, como o inemaref) e o renderizador trocável.</p>
+  <p class="sub">O <code>inemafilme</code> nêo é um monólito: separa "pensar a história" de "renderizar o vídeo" através de um contrato de dados neutro. Isso deixa o roteiro reutilizável (por outros sistemas, como o inemaref) e o renderizador trocável.</p>
   <div class="grid g3">
     <div class="card"><h3>📜 Contrato <code>historia</code></h3><p>Formato híbrido md (humano, editável) + json (máquina). Agnóstico de render — o mesmo <code>historia.json</code> pode virar filme pixflow, HQ ou, no futuro, vídeo por IA.</p></div>
-    <div class="card"><h3>✍️ Skill <code>roteiro</code></h3><p>Assunto ou roteiro bruto → <code>historia.md</code>/<code>.json</code> validados, com engenharia de retenção: promessa central, loops abertos/fechados, escalada, payoff. Não renderiza nada.</p></div>
-    <div class="card"><h3>🎥 Skill <code>filme</code></h3><p><code>historia.json</code> → MP4 narrado no pixflow: imagens flux2-klein, câmera por emoção, narração (bella + Giuseppe), música com build e SFX, tudo com ducking.</p></div>
+    <div class="card"><h3>✍️ Skill <code>roteiro</code></h3><p>Assunto ou roteiro bruto → <code>historia.md</code>/<code>.json</code> validados, com engenharia de retençêo: promessa central, loops abertos/fechados, escalada, payoff. Nêo renderiza nada.</p></div>
+    <div class="card"><h3>🎥 Skill <code>filme</code></h3><p><code>historia.json</code> → MP4 narrado no pixflow: imagens flux2-klein, câmera por emoçêo, narraçêo (bella + Giuseppe), música com build e SFX, tudo com ducking.</p></div>
   </div>
 </div></section>
 
@@ -152,13 +152,13 @@
     <span>filme: decupagem</span><span class="arr">→</span>
     <span>imagens (flux2-klein)</span><span class="arr">→</span>
     <span>render pixflow</span><span class="arr">→</span>
-    <span>narração + música + SFX</span><span class="arr">→</span>
+    <span>narraçêo + música + SFX</span><span class="arr">→</span>
     <span>mux</span><span class="arr">→</span>
     <span>MP4</span>
   </div>
   <div class="grid g3" style="margin-top:24px">
-    <div class="card"><h3>Retenção primeiro</h3><p>Toda história carrega uma <code>promessa_central</code> plantada no ato 1 e só resolvida no <code>payoff</code>; entre um beat e outro, nunca fica sem nenhum loop aberto ("sem deserto") — validado mecanicamente.</p></div>
-    <div class="card"><h3>Cena descrita, não dirigida</h3><p>O <code>roteiro</code> diz o que se vê e a emoção; o <code>filme</code> decide câmera, look e prompt. Isso deixa o mesmo <code>historia.json</code> reaproveitável por outros renderizadores.</p></div>
+    <div class="card"><h3>Retençêo primeiro</h3><p>Toda história carrega uma <code>promessa_central</code> plantada no ato 1 e só resolvida no <code>payoff</code>; entre um beat e outro, nunca fica sem nenhum loop aberto ("sem deserto") — validado mecanicamente.</p></div>
+    <div class="card"><h3>Cena descrita, nêo dirigida</h3><p>O <code>roteiro</code> diz o que se vê e a emoçêo; o <code>filme</code> decide câmera, look e prompt. Isso deixa o mesmo <code>historia.json</code> reaproveitável por outros renderizadores.</p></div>
     <div class="card"><h3>Movimento + troca constante</h3><p>Sem vídeo generativo, o dinamismo vem de câmera sempre ativa e planos curtos com alta troca de imagem — reusando a mesma imagem em vários planos pra segurar o custo.</p></div>
   </div>
 </div></section>
@@ -168,13 +168,13 @@
   <h2>O que precisa estar no ar</h2>
   <p class="sub">O <code>roteiro</code> só precisa de Python 3 (stdlib). O <code>filme</code> depende de alguns serviços locais do ecossistema — sonde antes de rodar.</p>
   <div class="grid g3">
-    <div class="card"><h3>Python 3 (contrato/roteiro)</h3><p>Compilar e validar a história são scripts puros, sem dependências externas.</p><pre><span class="c"># checar</span>
+    <div class="card"><h3>Python 3 (contrato/roteiro)</h3><p>Compilar e validar a história sêo scripts puros, sem dependências externas.</p><pre><span class="c"># checar</span>
 python3 --version</pre></div>
     <div class="card"><h3>inemaimg (imagens)</h3><p>flux2-klein servindo em <code>localhost:8000</code> — gera os planos da decupagem.</p><pre><span class="c"># checar</span>
 curl -s localhost:8000</pre></div>
     <div class="card"><h3>pixflow-motion (render)</h3><p>Motor de parallax 2.5D. Confira as dependências antes de renderizar.</p><pre><span class="c"># checar deps</span>
 node ~/.claude/skills/pixflow-motion/cli/pixflow-motion.mjs check-deps</pre></div>
-    <div class="card"><h3>inemavox (narração)</h3><p>Voz <code>bella</code> em <code>:7860</code> (pode oscilar) + <code>edge-tts</code> como fallback/segunda voz.</p><pre><span class="c"># sondar</span>
+    <div class="card"><h3>inemavox (narraçêo)</h3><p>Voz <code>bella</code> em <code>:7860</code> (pode oscilar) + <code>edge-tts</code> como fallback/segunda voz.</p><pre><span class="c"># sondar</span>
 curl -s 127.0.0.1:7860</pre></div>
     <div class="card"><h3>inemavox2 + ffmpeg (música/SFX)</h3><p><code>baixar_v1.py</code> (yt-dlp) baixa trilha e efeitos; <code>ffmpeg</code> faz o mux final.</p><pre><span class="c"># checar</span>
 ffmpeg -version</pre></div>
@@ -186,7 +186,7 @@ pip install -r requirements-dev.txt</pre></div>
 <section id="guia"><div class="wrap">
   <span class="chip">Guia de uso · passo a passo</span>
   <h2>Do assunto ao MP4 narrado</h2>
-  <p class="sub">O caminho completo tem duas skills: <code>roteiro</code> escreve a história, <code>filme</code> renderiza. Ambas ficam symlinkadas em <code>~/.claude/skills/</code> e são chamáveis pelo agente de qualquer projeto.</p>
+  <p class="sub">O caminho completo tem duas skills: <code>roteiro</code> escreve a história, <code>filme</code> renderiza. Ambas ficam symlinkadas em <code>~/.claude/skills/</code> e sêo chamáveis pelo agente de qualquer projeto.</p>
 
   <div class="step"><div class="b">1</div><div>
     <h3>Escreva a história (skill <code>roteiro</code>)</h3>
@@ -197,29 +197,29 @@ pip install -r requirements-dev.txt</pre></div>
 
   <div class="step"><div class="b">2</div><div>
     <h3>Compile e valide</h3>
-    <p>Toda <code>historia.md</code> precisa passar pelo compilador (md → json) e pelo validador (checklist de retenção: promessa, sem deserto, escalada, climax/payoff).</p>
+    <p>Toda <code>historia.md</code> precisa passar pelo compilador (md → json) e pelo validador (checklist de retençêo: promessa, sem deserto, escalada, climax/payoff).</p>
 <pre><span class="k">python3 ../contrato/compilar.py historia.md > historia.json</span>
 <span class="k">python3 ../contrato/validar.py historia.json</span>  <span class="c"># exit 0 = aprovado</span></pre>
   </div></div>
 
   <div class="step"><div class="b">3</div><div>
     <h3>Monte a decupagem (skill <code>filme</code>)</h3>
-    <p>Copie o template e, para cada beat, expanda a <code>cena.descricao_visual</code> em ~8-12 prompts de plano (wide/detalhe/personagem/ambiente/ação) — quanto mais imagens, mais dinâmico, sem encarecer o render.</p>
+    <p>Copie o template e, para cada beat, expanda a <code>cena.descricao_visual</code> em ~8-12 prompts de plano (wide/detalhe/personagem/ambiente/açêo) — quanto mais imagens, mais dinâmico, sem encarecer o render.</p>
 <pre><span class="k">cp filme/templates/decupagem.template.mjs ~/projetos/output/&lt;id&gt;/decupagem.mjs</span>
 <span class="c"># preenche os beats { key, look, emocao, caps, flash, imgs }</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Gere imagens + spec, depois renderize</h3>
-    <p>O build gera as imagens (flux2-klein) e monta o <code>.movie.yaml</code> + <code>timeline.json</code>. Valide rápido sem gerar imagem antes de comprometer custo; o render roda em background (proporcional à duração).</p>
+    <p>O build gera as imagens (flux2-klein) e monta o <code>.movie.yaml</code> + <code>timeline.json</code>. Valide rápido sem gerar imagem antes de comprometer custo; o render roda em background (proporcional à duraçêo).</p>
 <pre><span class="k">node decupagem.mjs --no-img</span>   <span class="c"># só valida yaml/timeline</span>
 <span class="k">node decupagem.mjs</span>            <span class="c"># gera imagens + movie.yaml + timeline.json</span>
 <span class="k">node ~/.claude/skills/pixflow-motion/cli/pixflow-motion.mjs render &lt;project&gt;.movie.yaml &lt;project&gt;-mudo.mp4</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
-    <h3>Narração, música e SFX</h3>
-    <p>Preencha <code>narracao.py</code> (bella + Giuseppe) cronometrado pelo <code>timeline.json</code>; baixe trilha com build cinemático e monte o SFX (braam no clímax, hits na tensão).</p>
+    <h3>Narraçêo, música e SFX</h3>
+    <p>Preencha <code>narracao.py</code> (bella + Giuseppe) cronometrado pelo <code>timeline.json</code>; baixe trilha com build cinemático e monte o SFX (braam no clímax, hits na tensêo).</p>
 <pre><span class="k">cp filme/templates/narracao.template.py narracao.py</span>  <span class="c"># preenche LINES</span>
 <span class="k">python3 narracao.py</span>                             <span class="c"># -> narracao.wav</span>
 <span class="k">filme/scripts/baixar_musica.sh "cinematic build" &lt;dur&gt;</span>  <span class="c"># -> music_bed.wav</span>
@@ -228,7 +228,7 @@ pip install -r requirements-dev.txt</pre></div>
 
   <div class="step"><div class="b">6</div><div>
     <h3>Mux final</h3>
-    <p>Mixa música (ducked) + SFX + voz sobre o vídeo mudo e produz o MP4 final e uma versão leve pro Telegram. Áudio é barato — itere aqui sem re-renderizar.</p>
+    <p>Mixa música (ducked) + SFX + voz sobre o vídeo mudo e produz o MP4 final e uma versêo leve pro Telegram. Áudio é barato — itere aqui sem re-renderizar.</p>
 <pre><span class="k">filme/scripts/mux.sh &lt;project&gt;</span>  <span class="c"># -> &lt;project&gt;.mp4 + &lt;project&gt;-tg.mp4 (&lt;50MB)</span>
 <span class="c"># saída final em ~/projetos/output/&lt;id&gt;/</span></pre>
   </div></div>
@@ -237,7 +237,7 @@ pip install -r requirements-dev.txt</pre></div>
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplo</span>
   <h2>"Avatar — O Eco das Cinzas"</h2>
-  <p class="sub">Modelo de referência completo em <code>filme/exemplo/avatar-eco-cinzas-v2/</code>: 96 planos, 2:48, 1280×720, narração bella + Giuseppe, SFX braam no clímax.</p>
+  <p class="sub">Modelo de referência completo em <code>filme/exemplo/avatar-eco-cinzas-v2/</code>: 96 planos, 2:48, 1280×720, narraçêo bella + Giuseppe, SFX braam no clímax.</p>
   <div class="ex code">
     <div class="card"><h3>historia.json (trecho)</h3>
 <pre><span class="c">// 9 beats, promessa_central com loop id "promessa-central"</span>
@@ -249,7 +249,7 @@ pip install -r requirements-dev.txt</pre></div>
   ]
 }</pre></div>
     <div class="card"><h3>build.mjs (decupagem)</h3>
-<pre><span class="c">// 9 beats -> ~91 imagens, pools de câmera por emoção</span>
+<pre><span class="c">// 9 beats -> ~91 imagens, pools de câmera por emoçêo</span>
 <span class="k">node build.mjs</span>  <span class="c"># gera imagens + movie.yaml + timeline.json</span>
 <span class="c">// white-flash no clímax, reuso de imagem entre planos</span></pre></div>
   </div>
@@ -261,7 +261,7 @@ pip install -r requirements-dev.txt</pre></div>
   <p class="sub">O contrato já foi desenhado pensando nas próximas fases — nenhuma delas exige reengenharia do formato.</p>
   <div class="phase"><div class="tag">v1</div><div class="d"><strong>Só narrador (atual)</strong><span>Filme único fechado, ~5 min, planos curtos com alta troca de imagem, motor pixflow.</span></div></div>
   <div class="phase"><div class="tag">v2</div><div class="d"><strong>Falas de personagem</strong><span>O contrato já tem <code>quem</code> por fala — cada personagem ganha sua própria voz.</span></div></div>
-  <div class="phase"><div class="tag">v3</div><div class="d"><strong>Episódios recorrentes</strong><span>Integração com o <code>inemaref-serie</code> (reuso de bíblia/personagens) e renderizadores plugáveis (HQ, IA de vídeo).</span></div></div>
+  <div class="phase"><div class="tag">v3</div><div class="d"><strong>Episódios recorrentes</strong><span>Integraçêo com o <code>inemaref-serie</code> (reuso de bíblia/personagens) e renderizadores plugáveis (HQ, IA de vídeo).</span></div></div>
 </div></section>
 
 <footer>

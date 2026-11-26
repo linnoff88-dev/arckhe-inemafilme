@@ -1,6 +1,6 @@
-# Motor de retenção: a promessa e os loops
+# Motor de retençêo: a promessa e os loops
 
-O que prende não é o que está acontecendo, é **o que ainda não aconteceu**. A
+O que prende nêo é o que está acontecendo, é **o que ainda nêo aconteceu**. A
 pessoa fica porque foi *prometido* que algo vem.
 
 ## A promessa central
@@ -10,14 +10,14 @@ Rastreada como um loop de id `promessa-central`.
 
 ## Loops aninhados
 Cada beat **abre** uma pergunta e/ou **fecha** uma anterior (`loop.abre`/
-`loop.fecha` são listas — um clímax pode fechar várias pontas de uma vez). Regra
+`loop.fecha` sêo listas — um clímax pode fechar várias pontas de uma vez). Regra
 de ferro: **nunca deixar um trecho sem nenhum loop aberto** — sempre há algo no
 ar. Fecha-se um loop pequeno, mas a promessa central segue aberta até o fim.
 
 ## Técnicas
 - **Setup → payoff:** planta cedo (objeto, frase, arma), paga tarde.
 - **Escalada:** a cada ato o custo sobe; a pergunta fica mais cara de responder.
-- **Curiosity gap:** o espectador sabe algo que o personagem não sabe (ou vice).
+- **Curiosity gap:** o espectador sabe algo que o personagem nêo sabe (ou vice).
 - **Cliffhanger (gancho_proximo):** em recorrência (v3), fecha o loop pequeno do
   episódio mas abre um maior antes dos créditos. Em filme único, segura a
   promessa central até o payoff.

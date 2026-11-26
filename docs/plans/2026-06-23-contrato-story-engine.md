@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Entregar o contrato `historia` (formato + compilador + validador) e o skill `story-engine` v1, que transforma um assunto/roteiro numa `historia.md`/`historia.json` estruturada para retenção — sem renderizar nada.
+**Goal:** Entregar o contrato `historia` (formato + compilador + validador) e o skill `story-engine` v1, que transforma um assunto/roteiro numa `historia.md`/`historia.json` estruturada para retençêo — sem renderizar nada.
 
-**Architecture:** O contrato é a "junta" do sistema. Duas camadas: `historia.md` (humano, editável) compilado para `historia.json` (máquina, consumido por renderizadores). As ferramentas do contrato (`compilar.py`, `validar.py`, `enums.py`) vivem em `contrato/` e são reusáveis por qualquer consumidor (story-engine, filme, inemaref). O `story-engine` é um skill (SKILL.md + knowledge) que **escreve** a `historia.md` (trabalho do agente, padrão inemaref) e **chama** as ferramentas do contrato para compilar/validar.
+**Architecture:** O contrato é a "junta" do sistema. Duas camadas: `historia.md` (humano, editável) compilado para `historia.json` (máquina, consumido por renderizadores). As ferramentas do contrato (`compilar.py`, `validar.py`, `enums.py`) vivem em `contrato/` e sêo reusáveis por qualquer consumidor (story-engine, filme, inemaref). O `story-engine` é um skill (SKILL.md + knowledge) que **escreve** a `historia.md` (trabalho do agente, padrêo inemaref) e **chama** as ferramentas do contrato para compilar/validar.
 
 **Tech Stack:** Python 3 (stdlib apenas para `compilar.py`/`validar.py`/`enums.py` — sem dependências externas); `pytest` apenas para os testes; Markdown para SKILL.md e knowledge.
 
@@ -18,7 +18,7 @@
 - **A promessa central é um loop com id literal `promessa-central`** — o validador depende disso.
 - **`compilar.py`, `validar.py`, `enums.py` usam só a stdlib** (sem PyYAML, sem libs). `pytest` só nos testes.
 - **Toda fala carrega `quem`** (`narrador` na v1; o compilador já registra falas de personagem para a v2).
-- **O contrato é agnóstico de render:** a cena é *descrita* (`descricao_visual`, `emocao`), não *dirigida* (câmera/look são do `filme`). `look_sugerido` é dica opcional, não validada por enum.
+- **O contrato é agnóstico de render:** a cena é *descrita* (`descricao_visual`, `emocao`), nêo *dirigida* (câmera/look sêo do `filme`). `look_sugerido` é dica opcional, nêo validada por enum.
 - **Frequent commits:** um commit por task (último passo de cada task).
 
 ---
@@ -30,7 +30,7 @@
   contrato/
     enums.py                 # menus fixos + versao_contrato (fonte única)
     compilar.py              # historia.md -> dict/historia.json (stdlib)
-    validar.py               # valida dict: schema + retenção (stdlib)
+    validar.py               # valida dict: schema + retençêo (stdlib)
     CONTRATO.md              # spec formal do formato (md + json) — referência humana
     exemplo/
       historia.md            # exemplo canônico (Avatar-mini), exercita todos os enums
@@ -304,7 +304,7 @@ git add -A && git commit -q -m "feat(contrato): compilar parseia frontmatter e p
 
 ---
 
-### Task 3: `compilar.py` — beats (meta, loop, cena, narração, falas)
+### Task 3: `compilar.py` — beats (meta, loop, cena, narraçêo, falas)
 
 **Files:**
 - Modify: `contrato/compilar.py` (adiciona `parse_beats`, completa `compilar`)
@@ -370,7 +370,7 @@ Expected: FAIL com `AttributeError: module 'compilar' has no attribute 'parse_be
 
 - [ ] **Step 3: Write minimal implementation**
 
-Adicionar a `contrato/compilar.py` (antes de `compilar`) a função `parse_beats`, e trocar a linha `doc["beats"] = []` por `doc["beats"] = parse_beats(corpo)`:
+Adicionar a `contrato/compilar.py` (antes de `compilar`) a funçêo `parse_beats`, e trocar a linha `doc["beats"] = []` por `doc["beats"] = parse_beats(corpo)`:
 ```python
 def _num(v):
     if v is None:
@@ -678,11 +678,11 @@ git add -A && git commit -q -m "feat(contrato): validar_schema do contrato histo
 
 ---
 
-### Task 6: `validar.py` — checklist de retenção
+### Task 6: `validar.py` — checklist de retençêo
 
 **Files:**
 - Modify: `contrato/validar.py` (adiciona `validar_retencao` e `validar`)
-- Test: `contrato/tests/test_validar.py` (testes de retenção)
+- Test: `contrato/tests/test_validar.py` (testes de retençêo)
 
 **Interfaces:**
 - Consumes: `enums.ID_PROMESSA`.
@@ -700,7 +700,7 @@ def test_retencao_exemplo_aprova():
 
 def test_retencao_sem_promessa_reprova():
     d = doc_ok(); d["promessa_central"] = ""
-    # schema pega o vazio; retenção também exige a promessa
+    # schema pega o vazio; retençêo também exige a promessa
     erros, _ = validar.validar_retencao(d)
     assert any("promessa" in e for e in erros)
 
@@ -848,7 +848,7 @@ def test_cli_aprova_exemplo():
 - [ ] **Step 2: Run test to verify it fails**
 
 Run: `cd /home/nmaldaner/projetos/inemafilme/contrato && python3 -m pytest tests/test_validar.py::test_cli_aprova_exemplo -v`
-Expected: FAIL (retorno 2 / "uso:" — sem `main` ainda; ou exit não-0).
+Expected: FAIL (retorno 2 / "uso:" — sem `main` ainda; ou exit nêo-0).
 
 - [ ] **Step 3: Add the CLI**
 
@@ -891,7 +891,7 @@ git add -A && git commit -q -m "feat(contrato): CLI do validar (exit code) + sui
 
 ---
 
-### Task 8: skill `story-engine` (SKILL.md + knowledge) + `CONTRATO.md` + integração
+### Task 8: skill `story-engine` (SKILL.md + knowledge) + `CONTRATO.md` + integraçêo
 
 **Files:**
 - Create: `contrato/CONTRATO.md`
@@ -907,7 +907,7 @@ git add -A && git commit -q -m "feat(contrato): CLI do validar (exit code) + sui
 
 - [ ] **Step 1: Write the coverage test (append) — failing**
 
-Anexar a `contrato/tests/test_validar.py` (garante que o exemplo canônico exercita a gramática de retenção que o skill ensina):
+Anexar a `contrato/tests/test_validar.py` (garante que o exemplo canônico exercita a gramática de retençêo que o skill ensina):
 ```python
 def test_exemplo_exercita_retencao():
     d = doc_ok()
@@ -951,9 +951,9 @@ A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json
 - `loop`: `abre`, `fecha` (ids de pergunta; um ou ambos, opcionais).
 - `cena`: `descricao` (visual), `ambiente`, `personagens` (csv), `look` (dica).
 
-**Prosa do beat:** linhas `> ...` = narração (`quem=narrador`); linhas
-`[Nome]: ...` = fala de personagem (`quem=nome`, minúsculo). Na v1 só a narração
-é usada pelo render; falas de personagem já são registradas para a v2.
+**Prosa do beat:** linhas `> ...` = narraçêo (`quem=narrador`); linhas
+`[Nome]: ...` = fala de personagem (`quem=nome`, minúsculo). Na v1 só a narraçêo
+é usada pelo render; falas de personagem já sêo registradas para a v2.
 
 ## Menus fixos (enums)
 
@@ -963,11 +963,11 @@ A "junta" do inemafilme. Duas camadas: `historia.md` (humano) → `historia.json
   ternura · furia
 - `formato`: 16:9 · 9:16
 
-## Regras de retenção (validadas)
+## Regras de retençêo (validadas)
 
 - Existe `promessa_central` e um beat `cold_open`/`promessa` no ato 1 que a planta.
 - A promessa central é um loop com id **`promessa-central`**, que só pode
-  **fechar** num beat `climax`/`payoff` (não antes).
+  **fechar** num beat `climax`/`payoff` (nêo antes).
 - **Sem "deserto":** depois de cada beat (menos o último) há ≥1 loop aberto.
 - Há `escalada` e há `climax`/`payoff`.
 - `Σ tempo_s ≈ duracao_alvo_s` (±15%, aviso). `nº de beats ≤ max_planos` (aviso).
@@ -984,9 +984,9 @@ python3 validar.py historia.json      # exit 0 = aprovado
 
 `story-engine/knowledge/retencao.md`:
 ```markdown
-# Motor de retenção: a promessa e os loops
+# Motor de retençêo: a promessa e os loops
 
-O que prende não é o que está acontecendo, é **o que ainda não aconteceu**. A
+O que prende nêo é o que está acontecendo, é **o que ainda nêo aconteceu**. A
 pessoa fica porque foi *prometido* que algo vem.
 
 ## A promessa central
@@ -1002,7 +1002,7 @@ um loop pequeno, mas a promessa central segue aberta até o fim.
 ## Técnicas
 - **Setup → payoff:** planta cedo (objeto, frase, arma), paga tarde.
 - **Escalada:** a cada ato o custo sobe; a pergunta fica mais cara de responder.
-- **Curiosity gap:** o espectador sabe algo que o personagem não sabe (ou vice).
+- **Curiosity gap:** o espectador sabe algo que o personagem nêo sabe (ou vice).
 - **Cliffhanger (gancho_proximo):** em recorrência (v3), fecha o loop pequeno do
   episódio mas abre um maior antes dos créditos. Em filme único, segura a
   promessa central até o payoff.
@@ -1032,27 +1032,27 @@ ficam esticados p/ um filme de ~5 min).
 
 ## Save the Cat (mapeado p/ funcao_retencao)
 abertura→cold_open · tema/promessa→promessa · catalisador/virada→virada ·
-diversão&jogos/provações→escalada · pausa→respiro · clímax→climax ·
+diversêo&jogos/provações→escalada · pausa→respiro · clímax→climax ·
 imagem final→payoff.
 
 ## Jornada do Herói (resumo utilizável)
-chamado → recusa → mentor/aliado → provações → provação suprema (climax) →
-retorno transformado (payoff). Use quando a história é de transformação pessoal.
+chamado → recusa → mentor/aliado → provações → provaçêo suprema (climax) →
+retorno transformado (payoff). Use quando a história é de transformaçêo pessoal.
 
 ## Ritmo
-Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleração no ato 3.
+Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleraçêo no ato 3.
 ```
 
 `story-engine/knowledge/tres-regras.md`:
 ```markdown
 # Três regras de conteúdo (colhido do inemaref-serie)
 
-1. **Objetivo + contribuição.** A história tem um objetivo declarado; cada beat
-   tem uma contribuição clara (1 frase: o que ele entrega rumo ao objetivo).
+1. **Objetivo + contribuiçêo.** A história tem um objetivo declarado; cada beat
+   tem uma contribuiçêo clara (1 frase: o que ele entrega rumo ao objetivo).
    Sem beat decorativo.
 2. **Canon visual.** Aparência de personagem/ambiente definida UMA vez (elenco
    em `personagens`) e reusada — consistência entre as cenas.
-3. **Narração fluente.** Escrever a locução como **texto corrido** (gancho →
+3. **Narraçêo fluente.** Escrever a locuçêo como **texto corrido** (gancho →
    desenvolvimento → virada → fecho, com conectivos), e SÓ DEPOIS fatiar nos
    beats. Nunca "uma frase solta por cena".
 ```
@@ -1068,24 +1068,24 @@ description: Transforma um assunto OU um roteiro numa historia estruturada para 
 
 # story-engine
 
-Produz a `historia` (o contrato que liga tudo). **Não renderiza.** Quem rende é o
+Produz a `historia` (o contrato que liga tudo). **Nêo renderiza.** Quem rende é o
 skill `filme` (pixflow) ou o inemaref.
 
 ## Entrada (três modos)
 - **A — só assunto:** invente a história completa (logline → promessa central →
-  arco de 3 atos → beats), aplicando retenção.
-- **B — roteiro pronto:** NÃO invente enredo; segmente em beats e injete a
-  estrutura de retenção (promessa, loops, escalada, payoff), cortando gordura.
+  arco de 3 atos → beats), aplicando retençêo.
+- **B — roteiro pronto:** NêO invente enredo; segmente em beats e injete a
+  estrutura de retençêo (promessa, loops, escalada, payoff), cortando gordura.
 - **C — referências:** se vier aparência de personagem/ambiente, use-a no elenco;
-  senão deixe como descrição (o `filme`/inemaref gera depois).
+  senêo deixe como descriçêo (o `filme`/inemaref gera depois).
 
 ## Como escrever (você, o agente)
 1. Leia `knowledge/retencao.md`, `frameworks.md`, `tres-regras.md`.
 2. Defina a `promessa_central` (a pergunta dramática) ANTES dos beats.
-3. Escreva a narração como texto corrido fluente; só então fatie em beats.
+3. Escreva a narraçêo como texto corrido fluente; só entêo fatie em beats.
 4. Para cada beat, preencha os comentários de metadado conforme
    `../contrato/CONTRATO.md`: `beat`, `loop` (abre/fecha — a promessa central é o
-   loop `promessa-central`), `cena` (descrição visual + emoção). Mantenha **sempre
+   loop `promessa-central`), `cena` (descriçêo visual + emoçêo). Mantenha **sempre
    ≥1 loop aberto** e feche a promessa central só no `payoff`.
 5. Salve em `historia.md`.
 
@@ -1096,7 +1096,7 @@ python3 ../contrato/validar.py historia.json
 ```
 Se o validador apontar ERRO (deserto, promessa fechada cedo, sem climax...),
 **corrija a `historia.md` e recompile** antes de entregar. Avisos (tempo/custo)
-são opcionais.
+sêo opcionais.
 
 ## Saída
 `historia.md` + `historia.json` (validado). É o que o `filme` consome.
@@ -1126,17 +1126,17 @@ git add -A && git commit -q -m "feat(story-engine): SKILL.md + knowledge + CONTR
 **1. Spec coverage (DESIGN.md → tasks):**
 - Contrato híbrido md+json (§3) → Tasks 2-4 (compilar) + CONTRATO.md (Task 8). ✔
 - Campos `promessa_central`, `funcao_retencao`, `emocao`, `tempo_s`, `quem`, `loop`, `personagens` (§3.2) → Tasks 2-3 (parse) + Task 5 (schema). ✔
-- Motor de retenção: promessa + loops + deserto + promessa-só-no-payoff (§3.3) → Task 6. ✔
-- Enums fixos (§12) → Task 1 + validação Task 5. ✔
-- Cena descrita (render-agnóstica), `look_sugerido` não validada por enum (§3, constraints) → Task 3 + Task 5 (sem enum de look). ✔
+- Motor de retençêo: promessa + loops + deserto + promessa-só-no-payoff (§3.3) → Task 6. ✔
+- Enums fixos (§12) → Task 1 + validaçêo Task 5. ✔
+- Cena descrita (render-agnóstica), `look_sugerido` nêo validada por enum (§3, constraints) → Task 3 + Task 5 (sem enum de look). ✔
 - story-engine: modos A/B/C, "inteligência = agente", knowledge colhido (§4) → Task 8. ✔
-- Guarda de custo `max_planos`, tempo vs duração (§9) → Task 6 (avisos). ✔
-- **Fora de escopo deste plano (corretamente):** `filme`/pixflow (§5), consistência via inemaref-folder (§6), motores de IA (§8), migração inemaref. Ganham planos próprios.
+- Guarda de custo `max_planos`, tempo vs duraçêo (§9) → Task 6 (avisos). ✔
+- **Fora de escopo deste plano (corretamente):** `filme`/pixflow (§5), consistência via inemaref-folder (§6), motores de IA (§8), migraçêo inemaref. Ganham planos próprios.
 
 **2. Placeholder scan:** Nenhum "TODO/TBD/fill in". Todo passo de código mostra o código; todo comando mostra o esperado. ✔
 
-**3. Type consistency:** `compilar.compilar` retorna o dict consumido por `validar.validar`; `enums.*` (incl. `ID_PROMESSA`) usado consistentemente em compilar/validar/testes; `validar()` retorna `{ok, erros, avisos}` usado igual no CLI (Task 7) e nos testes (Task 6). Nomes de função estáveis entre tasks. ✔
+**3. Type consistency:** `compilar.compilar` retorna o dict consumido por `validar.validar`; `enums.*` (incl. `ID_PROMESSA`) usado consistentemente em compilar/validar/testes; `validar()` retorna `{ok, erros, avisos}` usado igual no CLI (Task 7) e nos testes (Task 6). Nomes de funçêo estáveis entre tasks. ✔
 
-> **Nota de execução:** as Tasks 1-7 são puro TDD verde/vermelho. A Task 8 é
+> **Nota de execuçêo:** as Tasks 1-7 sêo puro TDD verde/vermelho. A Task 8 é
 > majoritariamente prosa (skill/knowledge) — seu "teste" é a suíte continuar
 > verde + o exemplo canônico exercitar a gramática que o SKILL.md ensina.

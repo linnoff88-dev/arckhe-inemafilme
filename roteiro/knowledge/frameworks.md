@@ -12,12 +12,12 @@ ficam esticados p/ um filme de ~5 min).
 
 ## Save the Cat (mapeado p/ funcao_retencao)
 abertura→cold_open · tema/promessa→promessa · catalisador/virada→virada ·
-diversão&jogos/provações→escalada · pausa→respiro · clímax→climax ·
+diversêo&jogos/provações→escalada · pausa→respiro · clímax→climax ·
 imagem final→payoff.
 
 ## Jornada do Herói (resumo utilizável)
-chamado → recusa → mentor/aliado → provações → provação suprema (climax) →
-retorno transformado (payoff). Use quando a história é de transformação pessoal.
+chamado → recusa → mentor/aliado → provações → provaçêo suprema (climax) →
+retorno transformado (payoff). Use quando a história é de transformaçêo pessoal.
 
 ## Ritmo
-Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleração no ato 3.
+Beats curtos no ato 1 (fisgar), respiro no meio do ato 2, aceleraçêo no ato 3.
